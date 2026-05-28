@@ -1,0 +1,258 @@
+[2026-05-09T05:55:59.890+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-09T05:56:00.092+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.calculate_gold_experiment_metrics scheduled__2026-05-08T00:00:00+00:00 [queued]>
+[2026-05-09T05:56:00.123+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.calculate_gold_experiment_metrics scheduled__2026-05-08T00:00:00+00:00 [queued]>
+[2026-05-09T05:56:00.127+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-09T05:56:00.175+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): calculate_gold_experiment_metrics> on 2026-05-08 00:00:00+00:00
+[2026-05-09T05:56:00.201+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ab_test_medallion_pipeline', 'calculate_gold_experiment_metrics', 'scheduled__2026-05-08T00:00:00+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_dag.py', '--cfg-path', '/tmp/tmpx9pum4l9']
+[2026-05-09T05:56:00.215+0000] {standard_task_runner.py:91} INFO - Job 82: Subtask calculate_gold_experiment_metrics
+[2026-05-09T05:56:00.230+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=15868) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-09T05:56:00.232+0000] {standard_task_runner.py:63} INFO - Started process 15869 to run task
+[2026-05-09T05:56:00.363+0000] {task_command.py:426} INFO - Running <TaskInstance: ab_test_medallion_pipeline.calculate_gold_experiment_metrics scheduled__2026-05-08T00:00:00+00:00 [running]> on host 2185890eddc3
+[2026-05-09T05:56:00.540+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_platform' AIRFLOW_CTX_DAG_ID='ab_test_medallion_pipeline' AIRFLOW_CTX_TASK_ID='calculate_gold_experiment_metrics' AIRFLOW_CTX_EXECUTION_DATE='2026-05-08T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-08T00:00:00+00:00'
+[2026-05-09T05:56:00.542+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-09T05:56:00.594+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-09T05:56:00.601+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/transforms/gold_metrics.py']
+[2026-05-09T05:56:00.622+0000] {subprocess.py:86} INFO - Output:
+[2026-05-09T05:56:03.191+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-05-09T05:56:06.480+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-05-09T05:56:06.681+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2.5.2/cache
+[2026-05-09T05:56:06.681+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2.5.2/jars
+[2026-05-09T05:56:06.688+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+[2026-05-09T05:56:06.689+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2026-05-09T05:56:06.689+0000] {subprocess.py:93} INFO - software.amazon.awssdk#bundle added as a dependency
+[2026-05-09T05:56:06.690+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-3099be4a-a5f2-4dd2-bc2e-676ee8f78f66;1.0
+[2026-05-09T05:56:06.691+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-09T05:56:07.097+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 in central
+[2026-05-09T05:56:07.284+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 in central
+[2026-05-09T05:56:07.382+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.9.1 in central
+[2026-05-09T05:56:07.496+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2026-05-09T05:56:07.558+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.8 in central
+[2026-05-09T05:56:07.608+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.17 in central
+[2026-05-09T05:56:07.685+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.4.2 in central
+[2026-05-09T05:56:07.782+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.4.2 in central
+[2026-05-09T05:56:07.841+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2026-05-09T05:56:07.887+0000] {subprocess.py:93} INFO - 	found org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 in central
+[2026-05-09T05:56:07.924+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.12.1 in central
+[2026-05-09T05:56:07.963+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.4.2 in central
+[2026-05-09T05:56:08.076+0000] {subprocess.py:93} INFO - 	found software.amazon.awssdk#bundle;2.29.52 in central
+[2026-05-09T05:56:08.204+0000] {subprocess.py:93} INFO - 	found software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 in central
+[2026-05-09T05:56:08.283+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;2.1.4.Final in central
+[2026-05-09T05:56:08.368+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 1636ms :: artifacts dl 41ms
+[2026-05-09T05:56:08.369+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2026-05-09T05:56:08.375+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2026-05-09T05:56:08.376+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.12.1 from central in [default]
+[2026-05-09T05:56:08.377+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.4.2 from central in [default]
+[2026-05-09T05:56:08.377+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.4.2 from central in [default]
+[2026-05-09T05:56:08.378+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.4.2 from central in [default]
+[2026-05-09T05:56:08.379+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.9.1 from central in [default]
+[2026-05-09T05:56:08.381+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 from central in [default]
+[2026-05-09T05:56:08.381+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 from central in [default]
+[2026-05-09T05:56:08.384+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2026-05-09T05:56:08.384+0000] {subprocess.py:93} INFO - 	org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 from central in [default]
+[2026-05-09T05:56:08.386+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.17 from central in [default]
+[2026-05-09T05:56:08.387+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;2.1.4.Final from central in [default]
+[2026-05-09T05:56:08.401+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.8 from central in [default]
+[2026-05-09T05:56:08.404+0000] {subprocess.py:93} INFO - 	software.amazon.awssdk#bundle;2.29.52 from central in [default]
+[2026-05-09T05:56:08.405+0000] {subprocess.py:93} INFO - 	software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 from central in [default]
+[2026-05-09T05:56:08.406+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-09T05:56:08.407+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-05-09T05:56:08.408+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-05-09T05:56:08.409+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-09T05:56:08.409+0000] {subprocess.py:93} INFO - 	|      default     |   15  |   0   |   0   |   0   ||   15  |   0   |
+[2026-05-09T05:56:08.410+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-09T05:56:08.420+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-3099be4a-a5f2-4dd2-bc2e-676ee8f78f66
+[2026-05-09T05:56:08.421+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-09T05:56:08.456+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 15 already retrieved (0kB/35ms)
+[2026-05-09T05:56:09.113+0000] {subprocess.py:93} INFO - 26/05/09 05:56:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-05-09T05:56:09.907+0000] {subprocess.py:93} INFO - Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+[2026-05-09T05:56:09.908+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-05-09T05:56:09.909+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-05-09T05:56:31.823+0000] {subprocess.py:93} INFO - 26/05/09 05:56:31 ERROR Inbox: Ignoring error
+[2026-05-09T05:56:31.825+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-09T05:56:31.826+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-09T05:56:31.827+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-09T05:56:31.827+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-09T05:56:31.828+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[2026-05-09T05:56:31.829+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[2026-05-09T05:56:31.829+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.RpcUtils$.makeDriverRef(RpcUtils.scala:36)
+[2026-05-09T05:56:31.830+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.driverEndpoint$lzycompute(BlockManagerMasterEndpoint.scala:132)
+[2026-05-09T05:56:31.831+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$driverEndpoint(BlockManagerMasterEndpoint.scala:131)
+[2026-05-09T05:56:31.832+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$lzycompute$1(BlockManagerMasterEndpoint.scala:707)
+[2026-05-09T05:56:31.832+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$1(BlockManagerMasterEndpoint.scala:706)
+[2026-05-09T05:56:31.833+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:746)
+[2026-05-09T05:56:31.834+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-09T05:56:31.834+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-09T05:56:31.835+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-09T05:56:31.838+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-09T05:56:31.838+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-09T05:56:31.839+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-09T05:56:31.840+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-09T05:56:31.841+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-09T05:56:31.842+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-09T05:56:31.844+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.rpc.RpcEndpointNotFoundException: Cannot find endpoint: spark://CoarseGrainedScheduler@2185890eddc3:44463
+[2026-05-09T05:56:31.845+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1(NettyRpcEnv.scala:151)
+[2026-05-09T05:56:31.846+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1$adapted(NettyRpcEnv.scala:147)
+[2026-05-09T05:56:31.847+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+[2026-05-09T05:56:31.847+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-09T05:56:31.848+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-09T05:56:31.849+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.850+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-09T05:56:31.850+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.851+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-09T05:56:31.852+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-09T05:56:31.853+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-09T05:56:31.853+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.854+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-09T05:56:31.854+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.855+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-09T05:56:31.856+0000] {subprocess.py:93} INFO - 	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:222)
+[2026-05-09T05:56:31.857+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.857+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:368)
+[2026-05-09T05:56:31.858+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.858+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-09T05:56:31.858+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess(Promise.scala:99)
+[2026-05-09T05:56:31.859+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess$(Promise.scala:99)
+[2026-05-09T05:56:31.859+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.trySuccess(Promise.scala:104)
+[2026-05-09T05:56:31.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.onSuccess$1(NettyRpcEnv.scala:228)
+[2026-05-09T05:56:31.860+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5(NettyRpcEnv.scala:242)
+[2026-05-09T05:56:31.863+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5$adapted(NettyRpcEnv.scala:241)
+[2026-05-09T05:56:31.864+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:517)
+[2026-05-09T05:56:31.864+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-09T05:56:31.865+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-09T05:56:31.865+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.866+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-09T05:56:31.866+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.867+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-09T05:56:31.867+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete(Promise.scala:57)
+[2026-05-09T05:56:31.867+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete$(Promise.scala:56)
+[2026-05-09T05:56:31.868+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:104)
+[2026-05-09T05:56:31.868+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success(Promise.scala:91)
+[2026-05-09T05:56:31.869+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success$(Promise.scala:91)
+[2026-05-09T05:56:31.869+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.success(Promise.scala:104)
+[2026-05-09T05:56:31.870+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.LocalNettyRpcCallContext.send(NettyRpcCallContext.scala:50)
+[2026-05-09T05:56:31.870+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcCallContext.reply(NettyRpcCallContext.scala:32)
+[2026-05-09T05:56:31.870+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.RpcEndpointVerifier$$anonfun$receiveAndReply$1.applyOrElse(RpcEndpointVerifier.scala:31)
+[2026-05-09T05:56:31.871+0000] {subprocess.py:93} INFO - 	... 8 more
+[2026-05-09T05:56:31.872+0000] {subprocess.py:93} INFO - 26/05/09 05:56:31 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-09T05:56:31.872+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-09T05:56:31.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-09T05:56:31.873+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-09T05:56:31.874+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-09T05:56:31.875+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-09T05:56:31.875+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-09T05:56:31.876+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-09T05:56:31.876+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-09T05:56:31.876+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-09T05:56:31.877+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-09T05:56:31.877+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-09T05:56:31.878+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-09T05:56:31.878+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-09T05:56:31.878+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-09T05:56:31.879+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-09T05:56:31.879+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-09T05:56:31.880+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-09T05:56:31.880+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-09T05:56:31.880+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-09T05:56:31.881+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-09T05:56:31.881+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-09T05:56:31.882+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-09T05:56:31.882+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-09T05:56:31.883+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[2026-05-09T05:56:31.883+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[2026-05-09T05:56:31.884+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.RpcUtils$.makeDriverRef(RpcUtils.scala:36)
+[2026-05-09T05:56:31.884+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.driverEndpoint$lzycompute(BlockManagerMasterEndpoint.scala:132)
+[2026-05-09T05:56:31.884+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$driverEndpoint(BlockManagerMasterEndpoint.scala:131)
+[2026-05-09T05:56:31.885+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$lzycompute$1(BlockManagerMasterEndpoint.scala:707)
+[2026-05-09T05:56:31.885+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$1(BlockManagerMasterEndpoint.scala:706)
+[2026-05-09T05:56:31.885+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:746)
+[2026-05-09T05:56:31.886+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-09T05:56:31.886+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-09T05:56:31.887+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-09T05:56:31.888+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-09T05:56:31.889+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-09T05:56:31.889+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-09T05:56:31.890+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-09T05:56:31.890+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.rpc.RpcEndpointNotFoundException: Cannot find endpoint: spark://CoarseGrainedScheduler@2185890eddc3:44463
+[2026-05-09T05:56:31.891+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1(NettyRpcEnv.scala:151)
+[2026-05-09T05:56:31.891+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1$adapted(NettyRpcEnv.scala:147)
+[2026-05-09T05:56:31.892+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+[2026-05-09T05:56:31.892+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-09T05:56:31.892+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-09T05:56:31.893+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.893+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-09T05:56:31.893+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.894+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-09T05:56:31.894+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-09T05:56:31.894+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-09T05:56:31.895+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.895+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-09T05:56:31.896+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.896+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-09T05:56:31.897+0000] {subprocess.py:93} INFO - 	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:222)
+[2026-05-09T05:56:31.897+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.898+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:368)
+[2026-05-09T05:56:31.898+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.899+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-09T05:56:31.899+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess(Promise.scala:99)
+[2026-05-09T05:56:31.900+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess$(Promise.scala:99)
+[2026-05-09T05:56:31.900+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.trySuccess(Promise.scala:104)
+[2026-05-09T05:56:31.900+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.onSuccess$1(NettyRpcEnv.scala:228)
+[2026-05-09T05:56:31.901+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5(NettyRpcEnv.scala:242)
+[2026-05-09T05:56:31.902+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5$adapted(NettyRpcEnv.scala:241)
+[2026-05-09T05:56:31.902+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:517)
+[2026-05-09T05:56:31.903+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-09T05:56:31.903+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-09T05:56:31.904+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-09T05:56:31.904+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-09T05:56:31.904+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-09T05:56:31.905+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-09T05:56:31.905+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete(Promise.scala:57)
+[2026-05-09T05:56:31.906+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete$(Promise.scala:56)
+[2026-05-09T05:56:31.906+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:104)
+[2026-05-09T05:56:31.907+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success(Promise.scala:91)
+[2026-05-09T05:56:31.907+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success$(Promise.scala:91)
+[2026-05-09T05:56:31.908+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.success(Promise.scala:104)
+[2026-05-09T05:56:31.908+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.LocalNettyRpcCallContext.send(NettyRpcCallContext.scala:50)
+[2026-05-09T05:56:31.909+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcCallContext.reply(NettyRpcCallContext.scala:32)
+[2026-05-09T05:56:31.909+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.RpcEndpointVerifier$$anonfun$receiveAndReply$1.applyOrElse(RpcEndpointVerifier.scala:31)
+[2026-05-09T05:56:31.910+0000] {subprocess.py:93} INFO - 	... 8 more
+[2026-05-09T05:56:40.951+0000] {subprocess.py:93} INFO - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[2026-05-09T05:56:40.952+0000] {subprocess.py:93} INFO - SLF4J: Defaulting to no-operation (NOP) logger implementation
+[2026-05-09T05:56:40.952+0000] {subprocess.py:93} INFO - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[2026-05-09T06:05:44.243+0000] {subprocess.py:93} INFO - [Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 2:>                                                          (0 + 4) / 7][Stage 2:=========================>                                 (3 + 4) / 7][Stage 2:=================================>                         (4 + 3) / 7][Stage 2:==========================================>                (5 + 2) / 7][Stage 2:==================================================>        (6 + 1) / 7]                                                                                [Stage 5:>                                                          (0 + 4) / 7][Stage 5:========>                                                  (1 + 4) / 7][Stage 5:================>                                          (2 + 4) / 7][Stage 5:=================================>                         (4 + 3) / 7][Stage 5:==========================================>                (5 + 2) / 7]                                                                                [Stage 8:>                                                          (0 + 4) / 7][Stage 8:================>                                          (2 + 4) / 7][Stage 8:=========================>                                 (3 + 4) / 7][Stage 8:=================================>                         (4 + 3) / 7][Stage 8:==========================================>                (5 + 2) / 7][Stage 8:==================================================>        (6 + 1) / 7]                                                                                [Stage 14:>                                                         (0 + 4) / 7][Stage 14:=================================>                        (4 + 3) / 7][Stage 14:=========================================>                (5 + 2) / 7][Stage 14:=================================================>        (6 + 1) / 7]                                                                                [Stage 20:>                                                         (0 + 4) / 7][Stage 20:>                                                         (0 + 5) / 7][Stage 20:========================>                                 (3 + 4) / 7][Stage 20:=================================>                        (4 + 3) / 7][Stage 20:=========================================>                (5 + 2) / 7][Stage 20:=================================================>        (6 + 1) / 7]                                                                                [Stage 23:>                                                         (0 + 4) / 7][Stage 23:========>                                                 (1 + 4) / 7][Stage 23:================>                                         (2 + 4) / 7][Stage 23:=================================>                        (4 + 3) / 7][Stage 23:=========================================>                (5 + 2) / 7]                                                                                [Stage 26:>                 (0 + 4) / 7][Stage 27:>                 (0 + 0) / 7][Stage 26:==>               (1 + 5) / 7][Stage 27:>                 (0 + 0) / 7][Stage 26:==========>       (4 + 3) / 7][Stage 27:>                 (0 + 1) / 7][Stage 26:============>     (5 + 2) / 7][Stage 27:>                 (0 + 2) / 7][Stage 26:===============>  (6 + 1) / 7][Stage 27:>                 (0 + 3) / 7][Stage 27:>                                                         (0 + 4) / 7][Stage 27:>                 (0 + 4) / 7][Stage 29:>                 (0 + 0) / 1][Stage 27:==>               (1 + 4) / 7][Stage 29:>                 (0 + 0) / 1][Stage 27:=====>            (2 + 4) / 7][Stage 29:>                 (0 + 0) / 1][Stage 27:=======>          (3 + 4) / 7][Stage 29:>                 (0 + 0) / 1][Stage 27:==========>       (4 + 3) / 7][Stage 29:>                 (0 + 1) / 1][Stage 27:=================================>                        (4 + 3) / 7][Stage 27:=========================================>                (5 + 2) / 7][Stage 27:=================================================>        (6 + 1) / 7]                                                                                [Stage 35:>                                                         (0 + 4) / 7][Stage 35:========>                                                 (1 + 4) / 7][Stage 35:================>                                         (2 + 4) / 7][Stage 35:=================================>                        (4 + 3) / 7][Stage 35:=========================================>                (5 + 2) / 7]                                                                                [Stage 41:>   (0 + 4) / 7][Stage 42:>   (0 + 0) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:=>  (3 + 1) / 7][Stage 42:>   (0 + 3) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:==> (4 + 0) / 7][Stage 42:>   (0 + 4) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:==> (4 + 0) / 7][Stage 42:>   (1 + 4) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:==> (4 + 0) / 7][Stage 42:=>  (2 + 4) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:==> (4 + 1) / 7][Stage 42:==> (4 + 3) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:==> (4 + 2) / 7][Stage 42:==> (5 + 2) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:==> (4 + 3) / 7][Stage 42:===>(6 + 1) / 7][Stage 43:>   (0 + 0) / 7][Stage 41:==========>       (4 + 3) / 7][Stage 43:>                 (0 + 1) / 7][Stage 41:============>     (5 + 2) / 7][Stage 43:>                 (0 + 2) / 7][Stage 41:==> (5 + 2) / 7][Stage 43:>   (0 + 2) / 7][Stage 45:>   (0 + 0) / 1][Stage 41:===>(6 + 1) / 7][Stage 43:>   (0 + 3) / 7][Stage 45:>   (0 + 0) / 1][Stage 43:>                 (0 + 4) / 7][Stage 45:>                 (0 + 0) / 1][Stage 43:>   (0 + 4) / 7][Stage 45:>   (0 + 0) / 1][Stage 47:>   (0 + 0) / 1][Stage 43:=>  (2 + 4) / 7][Stage 45:>   (0 + 0) / 1][Stage 47:>   (0 + 0) / 1][Stage 43:=>  (3 + 4) / 7][Stage 45:>   (0 + 0) / 1][Stage 47:>   (0 + 0) / 1][Stage 43:==> (4 + 3) / 7][Stage 45:>   (0 + 1) / 1][Stage 47:>   (0 + 0) / 1]                                                                                [Stage 43:=================================>                        (4 + 3) / 7][Stage 43:=========================================>                (5 + 2) / 7]                                                                                [Stage 56:>                 (0 + 4) / 7][Stage 57:>                 (0 + 0) / 7][Stage 56:==>               (1 + 4) / 7][Stage 57:>                 (0 + 0) / 7][Stage 56:=====>            (2 + 4) / 7][Stage 57:>                 (0 + 0) / 7][Stage 56:=======>          (3 + 4) / 7][Stage 57:>                 (0 + 0) / 7][Stage 56:==========>       (4 + 3) / 7][Stage 57:>                 (0 + 1) / 7][Stage 56:============>     (5 + 2) / 7][Stage 57:>                 (0 + 2) / 7][Stage 56:============>     (5 + 2) / 7][Stage 57:==>               (1 + 2) / 7][Stage 56:============>     (5 + 2) / 7][Stage 57:=====>            (2 + 2) / 7][Stage 56:===============>  (6 + 1) / 7][Stage 57:=====>            (2 + 3) / 7][Stage 57:================>                                         (2 + 4) / 7][Stage 57:=====>            (2 + 4) / 7][Stage 59:>                 (0 + 0) / 1][Stage 57:=======>          (3 + 4) / 7][Stage 59:>                 (0 + 0) / 1][Stage 57:==========>       (4 + 3) / 7][Stage 59:>                 (0 + 1) / 1][Stage 57:=================================>                        (4 + 3) / 7]                                                                                [Stage 57:=========================================>                (5 + 2) / 7][Stage 57:=================================================>        (6 + 1) / 7][Stage 65:>                                                         (0 + 4) / 7][Stage 65:========>                                                 (1 + 4) / 7][Stage 65:================>                                         (2 + 4) / 7][Stage 65:=================================>                        (4 + 3) / 7][Stage 65:=========================================>                (5 + 2) / 7][Stage 65:=================================================>        (6 + 1) / 7]                                                                                [Stage 77:>                                                         (0 + 1) / 1]                                                                                [Stage 78:>   (0 + 4) / 7][Stage 79:>   (0 + 0) / 7][Stage 80:>   (0 + 0) / 7][Stage 78:=>  (3 + 4) / 7][Stage 79:>   (0 + 0) / 7][Stage 80:>   (0 + 0) / 7][Stage 78:==> (4 + 3) / 7][Stage 79:>   (0 + 1) / 7][Stage 80:>   (0 + 0) / 7][Stage 78:==> (5 + 2) / 7][Stage 79:>   (0 + 2) / 7][Stage 80:>   (0 + 0) / 7][Stage 78:==> (5 + 2) / 7][Stage 79:>   (1 + 2) / 7][Stage 80:>   (0 + 0) / 7][Stage 78:===>(6 + 1) / 7][Stage 79:>   (1 + 3) / 7][Stage 80:>   (0 + 0) / 7][Stage 79:==>               (1 + 4) / 7][Stage 80:>                 (0 + 0) / 7][Stage 79:>   (1 + 4) / 7][Stage 80:>   (0 + 0) / 7][Stage 82:>   (0 + 0) / 1][Stage 79:=>  (2 + 4) / 7][Stage 80:>   (0 + 0) / 7][Stage 82:>   (0 + 0) / 1][Stage 79:=>  (3 + 4) / 7][Stage 80:>   (0 + 0) / 7][Stage 82:>   (0 + 0) / 1][Stage 79:==> (5 + 2) / 7][Stage 80:>   (0 + 2) / 7][Stage 82:>   (0 + 0) / 1][Stage 79:===>(6 + 1) / 7][Stage 80:>   (0 + 3) / 7][Stage 82:>   (0 + 0) / 1][Stage 80:>                 (0 + 4) / 7][Stage 82:>                 (0 + 0) / 1][Stage 80:==>               (1 + 4) / 7][Stage 82:>                 (0 + 0) / 1][Stage 80:=====>            (2 + 4) / 7][Stage 82:>                 (0 + 0) / 1][Stage 80:=======>          (3 + 4) / 7][Stage 82:>                 (0 + 0) / 1][Stage 80:==========>       (4 + 3) / 7][Stage 82:>                 (0 + 1) / 1]                                                                                [Stage 80:=================================>                        (4 + 3) / 7][Stage 80:=========================================>                (5 + 2) / 7]                                                                                [Stage 99:>                                                         (0 + 1) / 1]                                                                                [Stage 100:>                                                        (0 + 4) / 7][Stage 100:========>                                                (1 + 4) / 7][Stage 100:================>                                        (2 + 4) / 7][Stage 100:========================>                                (3 + 4) / 7][Stage 100:================================>                        (4 + 3) / 7][Stage 100:========================================>                (5 + 2) / 7][Stage 100:================================================>        (6 + 1) / 7]                                                                                [Stage 106:>                                                        (0 + 4) / 7][Stage 106:========>                                                (1 + 4) / 7][Stage 106:================>                                        (2 + 4) / 7][Stage 106:========================>                                (3 + 4) / 7][Stage 106:================================>                        (4 + 3) / 7][Stage 106:========================================>                (5 + 2) / 7][Stage 106:================================================>        (6 + 1) / 7]                                                                                [Stage 118:>                                                        (0 + 1) / 1]                                                                                [Stage 119:>                                                        (0 + 4) / 4][Stage 119:============================>                            (2 + 2) / 4][Stage 119:==========================================>              (3 + 1) / 4]                                                                                Initializing Spark Engine: Silver-To-Gold [DEV]
+[2026-05-09T06:05:44.247+0000] {subprocess.py:93} INFO - Reading Silver tables...
+[2026-05-09T06:05:44.248+0000] {subprocess.py:93} INFO - Building experiment metrics...
+[2026-05-09T06:05:44.248+0000] {subprocess.py:93} INFO - Building funnel metrics...
+[2026-05-09T06:05:44.249+0000] {subprocess.py:93} INFO - Building segment metrics...
+[2026-05-09T06:05:44.249+0000] {subprocess.py:93} INFO - Building data health summary...
+[2026-05-09T06:05:44.250+0000] {subprocess.py:93} INFO - +--------------------------+----------------+-------------+---------------+---------------+-------------+-----------------+-----------+---------------+-------------------+----------------------------+-------------------+--------------------------+
+[2026-05-09T06:05:44.250+0000] {subprocess.py:93} INFO - |experiment_id             |assigned_variant|exposed_users|converted_users|total_purchases|total_refunds|gross_revenue_gbp|refunds_gbp|net_revenue_gbp|conversion_rate_pct|revenue_per_exposed_user_gbp|avg_order_value_gbp|metric_generated_at       |
+[2026-05-09T06:05:44.251+0000] {subprocess.py:93} INFO - +--------------------------+----------------+-------------+---------------+---------------+-------------+-----------------+-----------+---------------+-------------------+----------------------------+-------------------+--------------------------+
+[2026-05-09T06:05:44.252+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|control         |939          |37             |39             |0            |3103.8           |0.0        |3103.8         |3.94               |3.31                        |83.89              |2026-05-09 05:59:08.488303|
+[2026-05-09T06:05:44.252+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|treatment       |984          |110            |121            |0            |11304.93         |0.0        |11304.93       |11.18              |11.49                       |102.77             |2026-05-09 05:59:08.488303|
+[2026-05-09T06:05:44.252+0000] {subprocess.py:93} INFO - +--------------------------+----------------+-------------+---------------+---------------+-------------+-----------------+-----------+---------------+-------------------+----------------------------+-------------------+--------------------------+
+[2026-05-09T06:05:44.263+0000] {subprocess.py:93} INFO - 
+[2026-05-09T06:05:44.264+0000] {subprocess.py:93} INFO - +--------------------------+----------------+----------------+-------------------+-------------+--------------+------------+--------------------------+
+[2026-05-09T06:05:44.264+0000] {subprocess.py:93} INFO - |experiment_id             |assigned_variant|event_name      |users_reached_stage|exposed_users|stage_rate_pct|funnel_order|metric_generated_at       |
+[2026-05-09T06:05:44.265+0000] {subprocess.py:93} INFO - +--------------------------+----------------+----------------+-------------------+-------------+--------------+------------+--------------------------+
+[2026-05-09T06:05:44.265+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|control         |page_view       |278                |939          |29.61         |1           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.268+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|control         |product_view    |223                |939          |23.75         |2           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.269+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|control         |add_to_cart     |161                |939          |17.15         |3           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.279+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|control         |checkout_started|124                |939          |13.21         |4           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.280+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|control         |payment_failed  |39                 |939          |4.15          |5           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.280+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|control         |purchase        |36                 |939          |3.83          |6           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.281+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|treatment       |page_view       |275                |984          |27.95         |1           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.282+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|treatment       |product_view    |231                |984          |23.48         |2           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.282+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|treatment       |add_to_cart     |175                |984          |17.78         |3           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.283+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|treatment       |checkout_started|118                |984          |11.99         |4           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.294+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|treatment       |payment_failed  |35                 |984          |3.56          |5           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.295+0000] {subprocess.py:93} INFO - |EXP_CHECKOUT_FAST_TRACK_V2|treatment       |purchase        |109                |984          |11.08         |6           |2026-05-09 06:00:10.920263|
+[2026-05-09T06:05:44.295+0000] {subprocess.py:93} INFO - +--------------------------+----------------+----------------+-------------------+-------------+--------------+------------+--------------------------+
+[2026-05-09T06:05:44.296+0000] {subprocess.py:93} INFO - 
+[2026-05-09T06:05:44.297+0000] {subprocess.py:93} INFO - Writing Gold outputs...
+[2026-05-09T06:05:44.297+0000] {subprocess.py:93} INFO - Gold metrics complete.
+[2026-05-09T06:05:45.899+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-09T06:05:45.901+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-09T06:05:46.099+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ab_test_medallion_pipeline, task_id=calculate_gold_experiment_metrics, run_id=scheduled__2026-05-08T00:00:00+00:00, execution_date=20260508T000000, start_date=20260509T055600, end_date=20260509T060546
+[2026-05-09T06:05:46.233+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-09T06:05:46.283+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

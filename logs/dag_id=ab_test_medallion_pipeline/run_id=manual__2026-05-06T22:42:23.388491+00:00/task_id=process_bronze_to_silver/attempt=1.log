@@ -1,0 +1,1115 @@
+[2026-05-06T22:42:27.387+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-06T22:42:27.718+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:42:23.388491+00:00 [queued]>
+[2026-05-06T22:42:27.774+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:42:23.388491+00:00 [queued]>
+[2026-05-06T22:42:27.775+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-06T22:42:27.852+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): process_bronze_to_silver> on 2026-05-06 22:42:23.388491+00:00
+[2026-05-06T22:42:27.936+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ab_test_medallion_pipeline', 'process_bronze_to_silver', 'manual__2026-05-06T22:42:23.388491+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_dag.py', '--cfg-path', '/tmp/tmp4ksrb6ad']
+[2026-05-06T22:42:28.004+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask process_bronze_to_silver
+[2026-05-06T22:42:28.010+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=5155) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-06T22:42:28.012+0000] {standard_task_runner.py:63} INFO - Started process 5156 to run task
+[2026-05-06T22:42:28.577+0000] {task_command.py:426} INFO - Running <TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:42:23.388491+00:00 [running]> on host c145f51c9ab6
+[2026-05-06T22:42:29.231+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_platform' AIRFLOW_CTX_DAG_ID='ab_test_medallion_pipeline' AIRFLOW_CTX_TASK_ID='process_bronze_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-05-06T22:42:23.388491+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-06T22:42:23.388491+00:00'
+[2026-05-06T22:42:29.235+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-06T22:42:29.347+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-06T22:42:29.355+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/transforms/silver_transform.py']
+[2026-05-06T22:42:29.394+0000] {subprocess.py:86} INFO - Output:
+[2026-05-06T22:42:32.444+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-05-06T22:42:35.927+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-05-06T22:42:36.252+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2.5.2/cache
+[2026-05-06T22:42:36.261+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2.5.2/jars
+[2026-05-06T22:42:36.285+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+[2026-05-06T22:42:36.331+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2026-05-06T22:42:36.331+0000] {subprocess.py:93} INFO - software.amazon.awssdk#bundle added as a dependency
+[2026-05-06T22:42:36.332+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-56576bad-4b26-4f30-9341-ab3fae234eee;1.0
+[2026-05-06T22:42:36.332+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-06T22:42:37.092+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 in central
+[2026-05-06T22:42:37.685+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 in central
+[2026-05-06T22:42:37.897+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.9.1 in central
+[2026-05-06T22:42:37.994+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2026-05-06T22:42:38.066+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.8 in central
+[2026-05-06T22:42:38.304+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.17 in central
+[2026-05-06T22:42:38.477+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.4.2 in central
+[2026-05-06T22:42:38.653+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.4.2 in central
+[2026-05-06T22:42:38.756+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2026-05-06T22:42:38.815+0000] {subprocess.py:93} INFO - 	found org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 in central
+[2026-05-06T22:42:38.954+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.12.1 in central
+[2026-05-06T22:42:39.089+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.4.2 in central
+[2026-05-06T22:42:39.132+0000] {subprocess.py:93} INFO - 	found software.amazon.awssdk#bundle;2.29.52 in central
+[2026-05-06T22:42:39.157+0000] {subprocess.py:93} INFO - 	found software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 in central
+[2026-05-06T22:42:39.183+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;2.1.4.Final in central
+[2026-05-06T22:42:39.247+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 2908ms :: artifacts dl 40ms
+[2026-05-06T22:42:39.248+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2026-05-06T22:42:39.249+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2026-05-06T22:42:39.249+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.12.1 from central in [default]
+[2026-05-06T22:42:39.249+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.4.2 from central in [default]
+[2026-05-06T22:42:39.250+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.4.2 from central in [default]
+[2026-05-06T22:42:39.250+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.4.2 from central in [default]
+[2026-05-06T22:42:39.251+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.9.1 from central in [default]
+[2026-05-06T22:42:39.252+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 from central in [default]
+[2026-05-06T22:42:39.252+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 from central in [default]
+[2026-05-06T22:42:39.256+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2026-05-06T22:42:39.256+0000] {subprocess.py:93} INFO - 	org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 from central in [default]
+[2026-05-06T22:42:39.257+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.17 from central in [default]
+[2026-05-06T22:42:39.257+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;2.1.4.Final from central in [default]
+[2026-05-06T22:42:39.258+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.8 from central in [default]
+[2026-05-06T22:42:39.258+0000] {subprocess.py:93} INFO - 	software.amazon.awssdk#bundle;2.29.52 from central in [default]
+[2026-05-06T22:42:39.258+0000] {subprocess.py:93} INFO - 	software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 from central in [default]
+[2026-05-06T22:42:39.259+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-06T22:42:39.264+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-05-06T22:42:39.264+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-05-06T22:42:39.265+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-06T22:42:39.265+0000] {subprocess.py:93} INFO - 	|      default     |   15  |   0   |   0   |   0   ||   15  |   0   |
+[2026-05-06T22:42:39.266+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-06T22:42:39.276+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-56576bad-4b26-4f30-9341-ab3fae234eee
+[2026-05-06T22:42:39.277+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-06T22:42:39.288+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 15 already retrieved (0kB/21ms)
+[2026-05-06T22:42:39.849+0000] {subprocess.py:93} INFO - 26/05/06 22:42:39 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-05-06T22:42:41.156+0000] {subprocess.py:93} INFO - Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+[2026-05-06T22:42:41.156+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-05-06T22:42:41.157+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-05-06T22:43:44.039+0000] {subprocess.py:93} INFO - 26/05/06 22:43:44 ERROR Inbox: Ignoring error
+[2026-05-06T22:43:44.050+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-06T22:43:44.050+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-06T22:43:44.051+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-06T22:43:44.054+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-06T22:43:44.055+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-06T22:43:44.056+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-06T22:43:44.058+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-06T22:43:44.065+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-06T22:43:44.073+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-06T22:43:44.074+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-06T22:43:44.077+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-06T22:43:44.078+0000] {subprocess.py:93} INFO - 26/05/06 22:43:44 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-06T22:43:44.078+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-06T22:43:44.079+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-06T22:43:44.079+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-06T22:43:44.080+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-06T22:43:44.081+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-06T22:43:44.081+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-06T22:43:44.086+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-06T22:43:44.094+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-06T22:43:44.095+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-06T22:43:44.105+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-06T22:43:44.106+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-06T22:43:44.115+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-06T22:43:44.116+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-06T22:43:44.116+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-06T22:43:44.117+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-06T22:43:44.118+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-06T22:43:44.118+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-06T22:43:44.121+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-06T22:43:44.124+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-06T22:43:44.125+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-06T22:43:44.126+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-06T22:43:44.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-06T22:43:44.127+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-06T22:43:44.128+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-06T22:43:44.128+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-06T22:43:44.130+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-06T22:43:44.131+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-06T22:43:44.131+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-06T22:43:53.494+0000] {subprocess.py:93} INFO - 26/05/06 22:43:53 ERROR Inbox: Ignoring error
+[2026-05-06T22:43:53.504+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-06T22:43:53.505+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-06T22:43:53.506+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-06T22:43:53.507+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-06T22:43:53.508+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-06T22:43:53.508+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-06T22:43:53.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-06T22:43:53.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-06T22:43:53.511+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-06T22:43:53.521+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-06T22:43:53.521+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-06T22:43:53.522+0000] {subprocess.py:93} INFO - 26/05/06 22:43:53 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-06T22:43:53.523+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-06T22:43:53.523+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-06T22:43:53.524+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-06T22:43:53.524+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-06T22:43:53.525+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-06T22:43:53.525+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-06T22:43:53.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-06T22:43:53.537+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-06T22:43:53.537+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-06T22:43:53.538+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-06T22:43:53.538+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-06T22:43:53.538+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-06T22:43:53.539+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-06T22:43:53.540+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-06T22:43:53.540+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-06T22:43:53.541+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-06T22:43:53.542+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-06T22:43:53.542+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-06T22:43:53.543+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-06T22:43:53.543+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-06T22:43:53.554+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-06T22:43:53.555+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-06T22:43:53.555+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-06T22:43:53.556+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-06T22:43:53.557+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-06T22:43:53.557+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-06T22:43:53.557+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-06T22:43:53.558+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-06T22:44:02.344+0000] {subprocess.py:93} INFO - 26/05/06 22:44:02 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-06T22:44:02.345+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-06T22:44:02.346+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-06T22:44:02.346+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-06T22:44:02.347+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-06T22:44:02.347+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-06T22:44:02.348+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-06T22:44:02.348+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-06T22:44:02.349+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-06T22:44:02.349+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-06T22:44:02.349+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-06T22:44:02.350+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-06T22:44:02.351+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-06T22:44:02.351+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-06T22:44:02.352+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-06T22:44:02.352+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-06T22:44:02.353+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-06T22:44:02.354+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-06T22:44:02.355+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-06T22:44:02.356+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-06T22:44:02.356+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-06T22:44:02.356+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-06T22:44:02.356+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-06T22:44:02.357+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-06T22:44:02.357+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-06T22:44:02.358+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-06T22:44:02.358+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-06T22:44:02.360+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-06T22:44:02.360+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-06T22:44:02.361+0000] {subprocess.py:93} INFO - 26/05/06 22:44:02 ERROR Inbox: Ignoring error
+[2026-05-06T22:44:02.361+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-06T22:44:02.362+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-06T22:44:02.362+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-06T22:44:02.363+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-06T22:44:02.363+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-06T22:44:02.364+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-06T22:44:02.364+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-06T22:44:02.364+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-06T22:44:02.365+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-06T22:44:02.365+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-06T22:44:02.366+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-06T22:44:21.388+0000] {subprocess.py:93} INFO - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[2026-05-06T22:44:21.390+0000] {subprocess.py:93} INFO - SLF4J: Defaulting to no-operation (NOP) logger implementation
+[2026-05-06T22:44:21.391+0000] {subprocess.py:93} INFO - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[2026-05-06T22:47:05.951+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 192, in heartbeat
+    self._merge_from(Job._fetch_from_db(self, session))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 89, in wrapped_function
+    for attempt in run_with_db_retries(max_retries=retries, logger=logger, **retry_kwargs):
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 435, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 368, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 410, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 183, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 98, in wrapped_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 316, in _fetch_from_db
+    session.merge(job)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3056, in merge
+    return self._merge(
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3136, in _merge
+    merged = self.get(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2853, in get
+    return self._get_impl(
+           ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2975, in _get_impl
+    return db_load_fn(
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 530, in load_on_pk_identity
+    session.execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2026-05-06T22:47:34.392+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-05-07T01:49:33.195+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-05-07T01:49:29.953+0000] {subprocess.py:93} INFO - [Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 4) / 4][Stage 1:>                  (0 + 4) / 4][Stage 2:>                  (0 + 0) / 4][Stage 1:====>              (1 + 3) / 4][Stage 2:>                  (0 + 1) / 4][Stage 1:==============>    (3 + 1) / 4][Stage 2:>                  (0 + 3) / 4][Stage 2:>                                                          (0 + 4) / 4][Stage 2:>                  (0 + 4) / 4][Stage 4:>                  (0 + 0) / 1][Stage 2:>                  (0 + 4) / 4][Stage 4:>                  (0 + 1) / 1][Stage 2:====>              (1 + 3) / 4][Stage 4:>                  (0 + 1) / 1][Stage 2:=========>         (2 + 2) / 4][Stage 4:>                  (0 + 1) / 1][Stage 2:==============>    (3 + 1) / 4][Stage 4:>                  (0 + 1) / 1][Stage 4:>                                                          (0 + 1) / 1][Stage 7:>                                                          (0 + 1) / 1]                                                                                [Stage 13:>                                                       (0 + 4) / 200][Stage 13:>                                                       (2 + 4) / 200][Stage 13:=>                                                      (6 + 4) / 200][Stage 13:==>                                                     (9 + 4) / 200][Stage 13:===>                                                   (13 + 4) / 200][Stage 13:====>                                                  (15 + 6) / 200][Stage 13:======>                                                (23 + 3) / 200][Stage 13:=======>                                               (29 + 4) / 200][Stage 13:=========>                                             (33 + 4) / 200][Stage 13:=========>                                             (36 + 4) / 200][Stage 13:===========>                                           (40 + 4) / 200][Stage 13:============>                                          (45 + 4) / 200][Stage 13:=============>                                         (49 + 4) / 200][Stage 13:==============>                                        (53 + 4) / 200][Stage 13:===============>                                       (58 + 4) / 200][Stage 13:================>                                      (61 + 4) / 200][Stage 13:=================>                                     (65 + 4) / 200][Stage 13:==================>                                    (69 + 4) / 200][Stage 13:====================>                                  (73 + 4) / 200][Stage 13:====================>                                  (76 + 4) / 200][Stage 13:=====================>                                 (79 + 4) / 200][Stage 13:======================>                                (82 + 5) / 200][Stage 13:=======================>                               (84 + 4) / 200][Stage 13:========================>                              (88 + 4) / 200][Stage 13:========================>                              (89 + 4) / 200][Stage 13:=========================>                             (91 + 6) / 200][Stage 13:==========================>                            (95 + 4) / 200][Stage 13:==========================>                            (98 + 4) / 200][Stage 13:===========================>                           (99 + 4) / 200][Stage 13:===========================>                          (103 + 4) / 200][Stage 13:===========================>                          (103 + 5) / 200][Stage 13:============================>                         (106 + 4) / 200][Stage 13:============================>                         (107 + 4) / 200][Stage 13:=============================>                        (108 + 4) / 200][Stage 13:=============================>                        (111 + 4) / 200][Stage 13:===============================>                      (115 + 5) / 200][Stage 13:=================================>                    (124 + 4) / 200][Stage 13:===================================>                  (132 + 3) / 200][Stage 13:=====================================>                (138 + 4) / 200][Stage 13:======================================>               (144 + 4) / 200][Stage 13:=======================================>              (147 + 4) / 200][Stage 13:========================================>             (150 + 4) / 200][Stage 13:=========================================>            (154 + 4) / 200][Stage 13:=========================================>            (155 + 4) / 200][Stage 13:==========================================>           (156 + 4) / 200][Stage 13:===========================================>          (160 + 4) / 200][Stage 13:============================================>         (163 + 4) / 200][Stage 13:============================================>         (166 + 4) / 200][Stage 13:=============================================>        (168 + 4) / 200][Stage 13:=============================================>        (170 + 4) / 200][Stage 13:===============================================>      (175 + 4) / 200][Stage 13:================================================>     (179 + 4) / 200][Stage 13:==================================================>   (186 + 4) / 200][Stage 13:==================================================>   (188 + 4) / 200][Stage 13:====================================================> (193 + 4) / 200][Stage 13:====================================================> (196 + 4) / 200][Stage 15:>                                                       (0 + 4) / 200][Stage 15:>                                                       (0 + 5) / 200][Stage 15:=>                                                      (4 + 4) / 200][Stage 15:=>                                                      (6 + 4) / 200][Stage 15:=>                                                      (7 + 4) / 200][Stage 15:==>                                                     (8 + 4) / 200][Stage 15:==>                                                    (10 + 4) / 200][Stage 15:===>                                                   (11 + 4) / 200][Stage 15:===>                                                   (12 + 4) / 200][Stage 15:===>                                                   (13 + 4) / 200][Stage 15:===>                                                   (14 + 4) / 200][Stage 15:====>                                                  (16 + 4) / 200][Stage 15:=====>                                                 (19 + 4) / 200][Stage 15:=====>                                                 (20 + 4) / 200][Stage 15:======>                                                (22 + 4) / 200][Stage 15:======>                                                (23 + 4) / 200][Stage 15:======>                                                (24 + 4) / 200][Stage 15:======>                                                (25 + 4) / 200][Stage 15:======>                                                (25 + 5) / 200][Stage 15:=======>                                               (27 + 4) / 200][Stage 15:=======>                                               (28 + 4) / 200][Stage 15:=======>                                               (28 + 5) / 200][Stage 15:=======>                                               (29 + 4) / 200][Stage 15:========>                                              (30 + 4) / 200][Stage 15:========>                                              (31 + 4) / 200][Stage 15:========>                                              (32 + 4) / 200][Stage 15:=========>                                             (33 + 4) / 200][Stage 15:=========>                                             (36 + 4) / 200][Stage 15:==========>                                            (37 + 4) / 200][Stage 15:==========>                                            (38 + 4) / 200][Stage 15:===========>                                           (40 + 4) / 200][Stage 15:===========>                                           (41 + 4) / 200][Stage 15:===========>                                           (43 + 4) / 200][Stage 15:============>                                          (44 + 4) / 200][Stage 15:============>                                          (45 + 4) / 200][Stage 15:============>                                          (46 + 4) / 200][Stage 15:============>                                          (47 + 4) / 200][Stage 15:=============>                                         (48 + 4) / 200][Stage 15:=============>                                         (49 + 4) / 200][Stage 15:=============>                                         (49 + 6) / 200][Stage 15:==============>                                        (51 + 4) / 200][Stage 15:==============>                                        (52 + 4) / 200][Stage 15:==============>                                        (54 + 4) / 200][Stage 15:===============>                                       (55 + 4) / 200][Stage 15:===============>                                       (56 + 4) / 200][Stage 15:===============>                                       (56 + 5) / 200][Stage 15:===============>                                       (57 + 4) / 200][Stage 15:===============>                                       (58 + 4) / 200][Stage 15:================>                                      (59 + 4) / 200][Stage 15:================>                                      (60 + 4) / 200][Stage 15:================>                                      (61 + 4) / 200][Stage 15:=================>                                     (62 + 4) / 200][Stage 15:=================>                                     (63 + 4) / 200][Stage 15:=================>                                     (63 + 4) / 200][Stage 15:=================>                                     (64 + 4) / 200][Stage 15:=================>                                     (65 + 4) / 200][Stage 15:==================>                                    (66 + 4) / 200][Stage 15:==================>                                    (67 + 4) / 200][Stage 15:==================>                                    (68 + 4) / 200][Stage 15:==================>                                    (69 + 4) / 200][Stage 15:===================>                                   (70 + 4) / 200][Stage 15:===================>                                   (71 + 4) / 200][Stage 15:====================>                                  (73 + 4) / 200][Stage 15:====================>                                  (74 + 4) / 200][Stage 15:====================>                                  (75 + 4) / 200][Stage 15:====================>                                  (76 + 4) / 200][Stage 15:=====================>                                 (77 + 4) / 200][Stage 15:=====================>                                 (78 + 4) / 200][Stage 15:=====================>                                 (79 + 4) / 200][Stage 15:======================>                                (80 + 4) / 200][Stage 15:======================>                                (81 + 4) / 200][Stage 15:======================>                                (83 + 4) / 200][Stage 15:=======================>                               (84 + 4) / 200][Stage 15:=======================>                               (85 + 4) / 200][Stage 15:=======================>                               (87 + 4) / 200][Stage 15:========================>                              (88 + 4) / 200][Stage 15:========================>                              (89 + 4) / 200][Stage 15:========================>                              (90 + 4) / 200][Stage 15:=========================>                             (91 + 4) / 200][Stage 15:=========================>                             (93 + 4) / 200][Stage 15:=========================>                             (93 + 4) / 200]26/05/07 01:49:22 WARN RenameOperation: While completing all active copies
+[2026-05-07T01:49:33.994+0000] {local_task_job_runner.py:214} ERROR - Heartbeat time limit exceeded!
+[2026-05-07T01:49:34.061+0000] {subprocess.py:93} INFO - java.net.UnknownHostException: copyFile(raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000093_305/year=2026/month=4/day=29/part-00093-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet, raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/task_202605062245461309380847502614538_0015_m_000093/year=2026/month=4/day=29/part-00093-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet) on raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000093_305/year=2026/month=4/day=29/part-00093-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.:    software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:34.062+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-05-07T01:49:34.063+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2026-05-07T01:49:34.063+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2026-05-07T01:49:34.063+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2026-05-07T01:49:34.064+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2026-05-07T01:49:34.064+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.wrapWithInnerIOE(ErrorTranslation.java:237)
+[2026-05-07T01:49:34.065+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.maybeExtractIOException(ErrorTranslation.java:207)
+[2026-05-07T01:49:34.065+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:211)
+[2026-05-07T01:49:34.065+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:124)
+[2026-05-07T01:49:34.066+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.copyFile(S3AFileSystem.java:4626)
+[2026-05-07T01:49:34.066+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.access$2200(S3AFileSystem.java:301)
+[2026-05-07T01:49:34.069+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem$OperationCallbacksImpl.copyFile(S3AFileSystem.java:2677)
+[2026-05-07T01:49:34.070+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.copySource(RenameOperation.java:596)
+[2026-05-07T01:49:34.070+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.lambda$initiateCopy$2(RenameOperation.java:568)
+[2026-05-07T01:49:34.070+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.store.audit.AuditingFunctions.lambda$callableWithinAuditSpan$3(AuditingFunctions.java:119)
+[2026-05-07T01:49:34.072+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-05-07T01:49:34.071+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.CallableSupplier.get(CallableSupplier.java:88)
+[2026-05-07T01:49:34.100+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+[2026-05-07T01:49:34.100+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.SemaphoredDelegatingExecutor$RunnableWithPermitRelease.run(SemaphoredDelegatingExecutor.java:225)
+[2026-05-07T01:49:34.101+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T01:49:34.101+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T01:49:34.102+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T01:49:34.105+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.
+[2026-05-07T01:49:34.164+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T01:49:34.165+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.interceptor.HelpfulUnknownHostExceptionInterceptor.modifyException(HelpfulUnknownHostExceptionInterceptor.java:59)
+[2026-05-07T01:49:34.166+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.interceptor.ExecutionInterceptorChain.modifyException(ExecutionInterceptorChain.java:181)
+[2026-05-07T01:49:34.166+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.runModifyException(ExceptionReportingUtils.java:54)
+[2026-05-07T01:49:34.167+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.reportFailureToInterceptors(ExceptionReportingUtils.java:38)
+[2026-05-07T01:49:34.167+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:39)
+[2026-05-07T01:49:34.167+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26)
+[2026-05-07T01:49:34.168+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:210)
+[2026-05-07T01:49:34.168+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103)
+[2026-05-07T01:49:34.169+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:173)
+[2026-05-07T01:49:34.169+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$1(BaseSyncClientHandler.java:80)
+[2026-05-07T01:49:34.170+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:182)
+[2026-05-07T01:49:34.170+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:74)
+[2026-05-07T01:49:34.171+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:45)
+[2026-05-07T01:49:34.171+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:53)
+[2026-05-07T01:49:34.172+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DefaultS3Client.headObject(DefaultS3Client.java:7029)
+[2026-05-07T01:49:34.172+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.lambda$headObject$56(DelegatingS3Client.java:5678)
+[2026-05-07T01:49:34.173+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.internal.crossregion.S3CrossRegionSyncClient.invokeOperation(S3CrossRegionSyncClient.java:67)
+[2026-05-07T01:49:34.174+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.headObject(DelegatingS3Client.java:5678)
+[2026-05-07T01:49:34.174+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.lambda$headObject$3(S3AStoreImpl.java:688)
+[2026-05-07T01:49:34.175+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2026-05-07T01:49:34.175+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2026-05-07T01:49:34.175+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.headObject(S3AStoreImpl.java:675)
+[2026-05-07T01:49:34.176+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.getObjectMetadata(S3AFileSystem.java:3088)
+[2026-05-07T01:49:34.177+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$copyFile$26(S3AFileSystem.java:4628)
+[2026-05-07T01:49:34.177+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:122)
+[2026-05-07T01:49:34.177+0000] {subprocess.py:93} INFO - 	... 12 more
+[2026-05-07T01:49:34.333+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:34.333+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T01:49:34.334+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47)
+[2026-05-07T01:49:34.334+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper2.setLastException(RetryableStageHelper2.java:226)
+[2026-05-07T01:49:34.335+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:65)
+[2026-05-07T01:49:34.335+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:36)
+[2026-05-07T01:49:34.335+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:34.336+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:53)
+[2026-05-07T01:49:34.336+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:35)
+[2026-05-07T01:49:34.337+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:82)
+[2026-05-07T01:49:34.337+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:62)
+[2026-05-07T01:49:34.337+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:43)
+[2026-05-07T01:49:34.338+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:50)
+[2026-05-07T01:49:34.338+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:32)
+[2026-05-07T01:49:34.338+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:34.338+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:34.339+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37)
+[2026-05-07T01:49:34.339+0000] {subprocess.py:93} INFO - 	... 32 more
+[2026-05-07T01:49:34.339+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 1 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com: Temporary failure in name resolution
+[2026-05-07T01:49:34.405+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 2 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:34.406+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 3 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:34.689+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 4 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:34.689+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 5 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:34.690+0000] {subprocess.py:93} INFO - Caused by: java.net.UnknownHostException: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:34.690+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2026-05-07T01:49:34.691+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2026-05-07T01:49:34.691+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2026-05-07T01:49:34.692+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2026-05-07T01:49:34.692+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+[2026-05-07T01:49:34.693+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+[2026-05-07T01:49:34.694+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+[2026-05-07T01:49:34.694+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86)
+[2026-05-07T01:49:34.695+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+[2026-05-07T01:49:34.695+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+[2026-05-07T01:49:34.696+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+[2026-05-07T01:49:34.696+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+[2026-05-07T01:49:34.697+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+[2026-05-07T01:49:35.675+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+[2026-05-07T01:49:35.676+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72)
+[2026-05-07T01:49:35.676+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254)
+[2026-05-07T01:49:35.676+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104)
+[2026-05-07T01:49:35.677+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231)
+[2026-05-07T01:49:35.677+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228)
+[2026-05-07T01:49:35.678+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:102)
+[2026-05-07T01:49:35.692+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:79)
+[2026-05-07T01:49:35.692+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:57)
+[2026-05-07T01:49:35.693+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:40)
+[2026-05-07T01:49:35.693+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:35.693+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:35.693+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:35.716+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:35.717+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:74)
+[2026-05-07T01:49:35.913+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:43)
+[2026-05-07T01:49:35.913+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:79)
+[2026-05-07T01:49:35.914+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:41)
+[2026-05-07T01:49:35.915+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:55)
+[2026-05-07T01:49:36.078+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:39)
+[2026-05-07T01:49:36.079+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.executeRequest(RetryableStage2.java:93)
+[2026-05-07T01:49:36.079+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:56)
+[2026-05-07T01:49:36.080+0000] {subprocess.py:93} INFO - 	... 44 more
+[2026-05-07T01:49:36.080+0000] {subprocess.py:93} INFO - 26/05/07 01:49:22 WARN RenameOperation: While completing all active copies
+[2026-05-07T01:49:36.080+0000] {subprocess.py:93} INFO - java.net.UnknownHostException: copyFile(raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000094_306/year=2026/month=4/day=29/part-00094-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet, raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/task_202605062245461309380847502614538_0015_m_000094/year=2026/month=4/day=29/part-00094-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet) on raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000094_306/year=2026/month=4/day=29/part-00094-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.:    software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:36.225+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-05-07T01:49:36.225+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2026-05-07T01:49:36.226+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2026-05-07T01:49:36.227+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2026-05-07T01:49:36.227+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2026-05-07T01:49:36.266+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.wrapWithInnerIOE(ErrorTranslation.java:237)
+[2026-05-07T01:49:36.266+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.maybeExtractIOException(ErrorTranslation.java:207)
+[2026-05-07T01:49:36.267+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:211)
+[2026-05-07T01:49:36.267+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:124)
+[2026-05-07T01:49:36.267+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.copyFile(S3AFileSystem.java:4626)
+[2026-05-07T01:49:36.268+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.access$2200(S3AFileSystem.java:301)
+[2026-05-07T01:49:36.268+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem$OperationCallbacksImpl.copyFile(S3AFileSystem.java:2677)
+[2026-05-07T01:49:36.268+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.copySource(RenameOperation.java:596)
+[2026-05-07T01:49:36.269+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.lambda$initiateCopy$2(RenameOperation.java:568)
+[2026-05-07T01:49:36.269+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.store.audit.AuditingFunctions.lambda$callableWithinAuditSpan$3(AuditingFunctions.java:119)
+[2026-05-07T01:49:36.269+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.CallableSupplier.get(CallableSupplier.java:88)
+[2026-05-07T01:49:36.270+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+[2026-05-07T01:49:36.270+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.SemaphoredDelegatingExecutor$RunnableWithPermitRelease.run(SemaphoredDelegatingExecutor.java:225)
+[2026-05-07T01:49:36.270+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T01:49:36.270+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T01:49:36.271+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T01:49:36.271+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.
+[2026-05-07T01:49:36.271+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T01:49:36.273+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.interceptor.HelpfulUnknownHostExceptionInterceptor.modifyException(HelpfulUnknownHostExceptionInterceptor.java:59)
+[2026-05-07T01:49:36.274+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.interceptor.ExecutionInterceptorChain.modifyException(ExecutionInterceptorChain.java:181)
+[2026-05-07T01:49:36.275+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.runModifyException(ExceptionReportingUtils.java:54)
+[2026-05-07T01:49:36.275+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.reportFailureToInterceptors(ExceptionReportingUtils.java:38)
+[2026-05-07T01:49:36.276+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:39)
+[2026-05-07T01:49:36.278+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26)
+[2026-05-07T01:49:36.279+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:210)
+[2026-05-07T01:49:36.281+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103)
+[2026-05-07T01:49:36.281+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:173)
+[2026-05-07T01:49:36.282+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$1(BaseSyncClientHandler.java:80)
+[2026-05-07T01:49:36.282+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:182)
+[2026-05-07T01:49:36.283+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:74)
+[2026-05-07T01:49:36.283+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:45)
+[2026-05-07T01:49:36.283+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:53)
+[2026-05-07T01:49:36.284+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DefaultS3Client.headObject(DefaultS3Client.java:7029)
+[2026-05-07T01:49:36.284+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.lambda$headObject$56(DelegatingS3Client.java:5678)
+[2026-05-07T01:49:36.288+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.internal.crossregion.S3CrossRegionSyncClient.invokeOperation(S3CrossRegionSyncClient.java:67)
+[2026-05-07T01:49:36.289+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.headObject(DelegatingS3Client.java:5678)
+[2026-05-07T01:49:36.290+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.lambda$headObject$3(S3AStoreImpl.java:688)
+[2026-05-07T01:49:36.291+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2026-05-07T01:49:37.249+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2026-05-07T01:49:37.250+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.headObject(S3AStoreImpl.java:675)
+[2026-05-07T01:49:37.250+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.getObjectMetadata(S3AFileSystem.java:3088)
+[2026-05-07T01:49:37.250+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$copyFile$26(S3AFileSystem.java:4628)
+[2026-05-07T01:49:37.251+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:122)
+[2026-05-07T01:49:37.251+0000] {subprocess.py:93} INFO - 	... 12 more
+[2026-05-07T01:49:37.251+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:37.251+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T01:49:37.252+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47)
+[2026-05-07T01:49:37.252+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper2.setLastException(RetryableStageHelper2.java:226)
+[2026-05-07T01:49:37.252+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:65)
+[2026-05-07T01:49:37.291+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:36)
+[2026-05-07T01:49:37.292+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:37.292+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:53)
+[2026-05-07T01:49:37.293+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:35)
+[2026-05-07T01:49:37.293+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:82)
+[2026-05-07T01:49:37.293+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:62)
+[2026-05-07T01:49:37.294+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:43)
+[2026-05-07T01:49:37.294+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:50)
+[2026-05-07T01:49:37.295+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:32)
+[2026-05-07T01:49:37.296+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:37.354+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:37.355+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37)
+[2026-05-07T01:49:37.356+0000] {subprocess.py:93} INFO - 	... 32 more
+[2026-05-07T01:49:37.356+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 1 failure: Unable to execute HTTP request: The target server failed to respond
+[2026-05-07T01:49:37.357+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 2 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:37.357+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 3 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:37.358+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 4 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:37.358+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 5 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:37.359+0000] {subprocess.py:93} INFO - Caused by: java.net.UnknownHostException: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:37.359+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2026-05-07T01:49:37.360+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2026-05-07T01:49:37.360+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2026-05-07T01:49:37.360+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2026-05-07T01:49:37.361+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+[2026-05-07T01:49:37.362+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+[2026-05-07T01:49:37.363+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+[2026-05-07T01:49:37.364+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86)
+[2026-05-07T01:49:37.364+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+[2026-05-07T01:49:37.365+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+[2026-05-07T01:49:37.366+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+[2026-05-07T01:49:37.367+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+[2026-05-07T01:49:37.367+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+[2026-05-07T01:49:37.368+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+[2026-05-07T01:49:37.368+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72)
+[2026-05-07T01:49:37.369+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254)
+[2026-05-07T01:49:37.369+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104)
+[2026-05-07T01:49:37.369+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231)
+[2026-05-07T01:49:37.370+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228)
+[2026-05-07T01:49:37.370+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:102)
+[2026-05-07T01:49:37.370+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:79)
+[2026-05-07T01:49:37.370+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:57)
+[2026-05-07T01:49:37.370+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:40)
+[2026-05-07T01:49:37.370+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:37.371+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:37.371+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:37.372+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:37.373+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:74)
+[2026-05-07T01:49:37.373+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:43)
+[2026-05-07T01:49:37.374+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:79)
+[2026-05-07T01:49:37.374+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:41)
+[2026-05-07T01:49:37.374+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:55)
+[2026-05-07T01:49:37.375+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:39)
+[2026-05-07T01:49:37.375+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.executeRequest(RetryableStage2.java:93)
+[2026-05-07T01:49:37.375+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:56)
+[2026-05-07T01:49:37.375+0000] {subprocess.py:93} INFO - 	... 44 more
+[2026-05-07T01:49:37.376+0000] {subprocess.py:93} INFO - 26/05/07 01:49:22 ERROR Utils: Aborting task
+[2026-05-07T01:49:37.376+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: [TASK_WRITE_FAILED] Task failed while writing rows to s3a://telemetry-lake-dev/raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7. SQLSTATE: 58030
+[2026-05-07T01:49:38.505+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.taskFailedWhileWritingRowsError(QueryExecutionErrors.scala:814)
+[2026-05-07T01:49:38.506+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.enrichWriteError(FileFormatDataWriter.scala:92)
+[2026-05-07T01:49:38.506+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.writeWithMetrics(FileFormatDataWriter.scala:103)
+[2026-05-07T01:49:38.507+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.writeWithIterator(FileFormatDataWriter.scala:111)
+[2026-05-07T01:49:38.507+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:406)
+[2026-05-07T01:49:38.508+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+[2026-05-07T01:49:38.508+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+[2026-05-07T01:49:38.508+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+[2026-05-07T01:49:38.508+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+[2026-05-07T01:49:38.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+[2026-05-07T01:49:38.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2026-05-07T01:49:38.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+[2026-05-07T01:49:38.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+[2026-05-07T01:49:38.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2026-05-07T01:49:38.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+[2026-05-07T01:49:38.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+[2026-05-07T01:49:38.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:716)
+[2026-05-07T01:49:38.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+[2026-05-07T01:49:38.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+[2026-05-07T01:49:38.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+[2026-05-07T01:49:38.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:719)
+[2026-05-07T01:49:38.512+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T01:49:38.512+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T01:49:38.513+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T01:49:38.513+0000] {subprocess.py:93} INFO - Caused by: java.net.UnknownHostException: getFileStatus on s3a://telemetry-lake-dev/raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000095_307/year=2026/month=4/day=29/part-00095-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.:    software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:38.513+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-05-07T01:49:38.514+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2026-05-07T01:49:38.514+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2026-05-07T01:49:38.514+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2026-05-07T01:49:38.514+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2026-05-07T01:49:38.515+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.wrapWithInnerIOE(ErrorTranslation.java:237)
+[2026-05-07T01:49:38.515+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.maybeExtractIOException(ErrorTranslation.java:207)
+[2026-05-07T01:49:38.515+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:211)
+[2026-05-07T01:49:38.516+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:157)
+[2026-05-07T01:49:38.516+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:4164)
+[2026-05-07T01:49:38.516+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:4027)
+[2026-05-07T01:49:38.517+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerCreateFile(S3AFileSystem.java:2192)
+[2026-05-07T01:49:38.517+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$create$5(S3AFileSystem.java:2097)
+[2026-05-07T01:49:38.518+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.invokeTrackingDuration(IOStatisticsBinding.java:547)
+[2026-05-07T01:49:38.518+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:528)
+[2026-05-07T01:49:38.519+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.trackDuration(IOStatisticsBinding.java:449)
+[2026-05-07T01:49:38.519+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2917)
+[2026-05-07T01:49:38.519+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2936)
+[2026-05-07T01:49:38.520+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.create(S3AFileSystem.java:2096)
+[2026-05-07T01:49:38.521+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+[2026-05-07T01:49:38.521+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+[2026-05-07T01:49:38.522+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.util.HadoopOutputFile.create(HadoopOutputFile.java:82)
+[2026-05-07T01:49:38.522+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetFileWriter.<init>(ParquetFileWriter.java:475)
+[2026-05-07T01:49:38.523+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetFileWriter.<init>(ParquetFileWriter.java:407)
+[2026-05-07T01:49:38.523+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputFormat.getRecordWriter(ParquetOutputFormat.java:560)
+[2026-05-07T01:49:38.524+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputFormat.getRecordWriter(ParquetOutputFormat.java:480)
+[2026-05-07T01:49:38.524+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputFormat.getRecordWriter(ParquetOutputFormat.java:469)
+[2026-05-07T01:49:38.525+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.parquet.ParquetOutputWriter.<init>(ParquetOutputWriter.scala:36)
+[2026-05-07T01:49:38.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.parquet.ParquetUtils$$anon$1.newInstance(ParquetUtils.scala:561)
+[2026-05-07T01:49:38.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.BaseDynamicPartitionDataWriter.renewCurrentWriter(FileFormatDataWriter.scala:317)
+[2026-05-07T01:49:38.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.DynamicPartitionDataSingleWriter.write(FileFormatDataWriter.scala:384)
+[2026-05-07T01:49:38.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.$anonfun$writeWithMetrics$4(FileFormatDataWriter.scala:103)
+[2026-05-07T01:49:38.527+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T01:49:38.527+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.enrichWriteError(FileFormatDataWriter.scala:84)
+[2026-05-07T01:49:38.527+0000] {subprocess.py:93} INFO - 	... 22 more
+[2026-05-07T01:49:38.527+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.
+[2026-05-07T01:49:38.527+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T01:49:38.528+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.interceptor.HelpfulUnknownHostExceptionInterceptor.modifyException(HelpfulUnknownHostExceptionInterceptor.java:59)
+[2026-05-07T01:49:38.528+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.interceptor.ExecutionInterceptorChain.modifyException(ExecutionInterceptorChain.java:181)
+[2026-05-07T01:49:38.528+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.runModifyException(ExceptionReportingUtils.java:54)
+[2026-05-07T01:49:38.528+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.reportFailureToInterceptors(ExceptionReportingUtils.java:38)
+[2026-05-07T01:49:38.528+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:39)
+[2026-05-07T01:49:38.529+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26)
+[2026-05-07T01:49:38.530+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:210)
+[2026-05-07T01:49:38.531+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103)
+[2026-05-07T01:49:38.531+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:173)
+[2026-05-07T01:49:38.531+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$1(BaseSyncClientHandler.java:80)
+[2026-05-07T01:49:38.531+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:182)
+[2026-05-07T01:49:38.532+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:74)
+[2026-05-07T01:49:38.532+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:45)
+[2026-05-07T01:49:38.532+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:53)
+[2026-05-07T01:49:38.532+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DefaultS3Client.listObjectsV2(DefaultS3Client.java:8081)
+[2026-05-07T01:49:38.532+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.lambda$listObjectsV2$66(DelegatingS3Client.java:6525)
+[2026-05-07T01:49:38.533+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.internal.crossregion.S3CrossRegionSyncClient.invokeOperation(S3CrossRegionSyncClient.java:67)
+[2026-05-07T01:49:38.533+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.listObjectsV2(DelegatingS3Client.java:6525)
+[2026-05-07T01:49:38.533+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$listObjects$12(S3AFileSystem.java:3140)
+[2026-05-07T01:49:38.533+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.invokeTrackingDuration(IOStatisticsBinding.java:547)
+[2026-05-07T01:49:38.533+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:528)
+[2026-05-07T01:49:38.534+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2026-05-07T01:49:38.534+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2026-05-07T01:49:38.534+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.listObjects(S3AFileSystem.java:3131)
+[2026-05-07T01:49:38.534+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:4136)
+[2026-05-07T01:49:38.534+0000] {subprocess.py:93} INFO - 	... 46 more
+[2026-05-07T01:49:38.534+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:38.535+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T01:49:38.535+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47)
+[2026-05-07T01:49:38.535+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper2.setLastException(RetryableStageHelper2.java:226)
+[2026-05-07T01:49:38.535+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:65)
+[2026-05-07T01:49:38.535+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:36)
+[2026-05-07T01:49:38.535+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:38.536+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:53)
+[2026-05-07T01:49:38.536+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:35)
+[2026-05-07T01:49:38.536+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:82)
+[2026-05-07T01:49:38.536+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:62)
+[2026-05-07T01:49:38.536+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:43)
+[2026-05-07T01:49:38.536+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:50)
+[2026-05-07T01:49:38.537+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:32)
+[2026-05-07T01:49:38.537+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:38.537+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:38.537+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37)
+[2026-05-07T01:49:38.537+0000] {subprocess.py:93} INFO - 	... 66 more
+[2026-05-07T01:49:38.537+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 1 failure: Unable to execute HTTP request: The target server failed to respond
+[2026-05-07T01:49:38.918+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 2 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:38.919+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 3 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:38.919+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 4 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:38.920+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 5 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:38.920+0000] {subprocess.py:93} INFO - Caused by: java.net.UnknownHostException: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:38.921+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2026-05-07T01:49:38.922+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2026-05-07T01:49:38.922+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2026-05-07T01:49:38.922+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2026-05-07T01:49:38.923+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+[2026-05-07T01:49:38.924+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+[2026-05-07T01:49:38.924+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+[2026-05-07T01:49:38.925+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86)
+[2026-05-07T01:49:38.925+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+[2026-05-07T01:49:38.926+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+[2026-05-07T01:49:38.926+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+[2026-05-07T01:49:38.926+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+[2026-05-07T01:49:38.926+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+[2026-05-07T01:49:38.927+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+[2026-05-07T01:49:38.928+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72)
+[2026-05-07T01:49:38.928+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254)
+[2026-05-07T01:49:38.929+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104)
+[2026-05-07T01:49:38.929+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231)
+[2026-05-07T01:49:38.929+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228)
+[2026-05-07T01:49:38.929+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:102)
+[2026-05-07T01:49:38.930+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:79)
+[2026-05-07T01:49:38.930+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:57)
+[2026-05-07T01:49:38.930+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:40)
+[2026-05-07T01:49:38.930+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:38.931+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:38.931+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:38.931+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T01:49:38.931+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:74)
+[2026-05-07T01:49:38.932+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:43)
+[2026-05-07T01:49:38.932+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:79)
+[2026-05-07T01:49:38.932+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:41)
+[2026-05-07T01:49:38.934+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:55)
+[2026-05-07T01:49:38.934+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:39)
+[2026-05-07T01:49:38.934+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.executeRequest(RetryableStage2.java:93)
+[2026-05-07T01:49:38.935+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:56)
+[2026-05-07T01:49:38.935+0000] {subprocess.py:93} INFO - 	... 78 more
+[2026-05-07T01:49:38.935+0000] {subprocess.py:93} INFO - 26/05/07 01:49:22 ERROR Utils: Aborting task
+[2026-05-07T01:49:39.284+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: [TASK_WRITE_FAILED] Task failed while writing rows to s3a://telemetry-lake-dev/raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7. SQLSTATE: 58030
+[2026-05-07T01:49:39.284+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.errors.QueryExecutionErrors$.taskFailedWhileWritingRowsError(QueryExecutionErrors.scala:814)
+[2026-05-07T01:49:39.285+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.enrichWriteError(FileFormatDataWriter.scala:92)
+[2026-05-07T01:49:39.286+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.writeWithMetrics(FileFormatDataWriter.scala:103)
+[2026-05-07T01:49:39.287+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.writeWithIterator(FileFormatDataWriter.scala:111)
+[2026-05-07T01:49:39.485+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:406)
+[2026-05-07T01:49:39.485+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+[2026-05-07T01:49:39.486+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+[2026-05-07T01:49:39.486+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+[2026-05-07T01:49:39.487+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+[2026-05-07T01:49:39.487+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+[2026-05-07T01:49:39.488+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2026-05-07T01:49:39.489+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+[2026-05-07T01:49:39.489+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+[2026-05-07T01:49:39.490+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2026-05-07T01:49:39.490+0000] {subprocess.py:93} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+[2026-05-07T01:49:39.491+0000] {subprocess.py:93} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+[2026-05-07T01:49:39.492+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:716)
+[2026-05-07T01:49:39.492+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+[2026-05-07T01:49:39.493+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+[2026-05-07T01:49:39.493+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+[2026-05-07T01:49:39.494+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:719)
+[2026-05-07T01:49:39.494+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T01:49:39.494+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T01:49:39.495+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T01:49:39.495+0000] {subprocess.py:93} INFO - Caused by: java.net.UnknownHostException: getFileStatus on s3a://telemetry-lake-dev/raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000096_308/year=2026/month=4/day=29/part-00096-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.:    software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T01:49:39.496+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-05-07T01:49:39.496+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2026-05-07T01:49:39.497+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2026-05-07T01:49:39.497+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2026-05-07T01:49:39.497+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2026-05-07T01:49:39.507+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.wrapWithInnerIOE(ErrorTranslation.java:237)
+[2026-05-07T01:49:39.507+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.maybeExtractIOException(ErrorTranslation.java:207)
+[2026-05-07T01:49:39.508+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:211)
+[2026-05-07T01:49:39.508+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:157)
+[2026-05-07T01:49:39.509+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:4164)
+[2026-05-07T01:49:39.509+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerGetFileStatus(S3AFileSystem.java:4027)
+[2026-05-07T01:49:39.510+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.innerCreateFile(S3AFileSystem.java:2192)
+[2026-05-07T01:49:39.510+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$create$5(S3AFileSystem.java:2097)
+[2026-05-07T01:49:39.511+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.invokeTrackingDuration(IOStatisticsBinding.java:547)
+[2026-05-07T01:49:39.511+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:528)
+[2026-05-07T01:49:39.511+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.trackDuration(IOStatisticsBinding.java:449)
+[2026-05-07T01:49:39.512+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2917)
+[2026-05-07T01:49:39.512+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.trackDurationAndSpan(S3AFileSystem.java:2936)
+[2026-05-07T01:49:39.513+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.create(S3AFileSystem.java:2096)
+[2026-05-07T01:49:39.513+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+[2026-05-07T01:49:39.514+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+[2026-05-07T01:49:39.514+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.util.HadoopOutputFile.create(HadoopOutputFile.java:82)
+[2026-05-07T01:49:39.519+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetFileWriter.<init>(ParquetFileWriter.java:475)
+[2026-05-07T01:49:39.523+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetFileWriter.<init>(ParquetFileWriter.java:407)
+[2026-05-07T01:49:39.524+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputFormat.getRecordWriter(ParquetOutputFormat.java:560)
+[2026-05-07T01:49:39.525+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputFormat.getRecordWriter(ParquetOutputFormat.java:480)
+[2026-05-07T01:49:39.525+0000] {subprocess.py:93} INFO - 	at org.apache.parquet.hadoop.ParquetOutputFormat.getRecordWriter(ParquetOutputFormat.java:469)
+[2026-05-07T01:49:39.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.parquet.ParquetOutputWriter.<init>(ParquetOutputWriter.scala:36)
+[2026-05-07T01:49:39.527+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.parquet.ParquetUtils$$anon$1.newInstance(ParquetUtils.scala:561)
+[2026-05-07T01:49:39.527+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.BaseDynamicPartitionDataWriter.renewCurrentWriter(FileFormatDataWriter.scala:317)
+[2026-05-07T01:49:39.528+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.DynamicPartitionDataSingleWriter.write(FileFormatDataWriter.scala:384)
+[2026-05-07T01:49:39.528+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.$anonfun$writeWithMetrics$4(FileFormatDataWriter.scala:103)
+[2026-05-07T08:21:38.858+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T08:21:38.859+0000] {subprocess.py:93} INFO - 	at org.apache.spark.sql.execution.datasources.FileFormatDataWriter.enrichWriteError(FileFormatDataWriter.scala:84)
+[2026-05-07T08:21:38.859+0000] {subprocess.py:93} INFO - 	... 22 more
+[2026-05-07T08:21:38.860+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.
+[2026-05-07T08:21:38.860+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T08:21:38.860+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.interceptor.HelpfulUnknownHostExceptionInterceptor.modifyException(HelpfulUnknownHostExceptionInterceptor.java:59)
+[2026-05-07T08:21:38.861+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.interceptor.ExecutionInterceptorChain.modifyException(ExecutionInterceptorChain.java:181)
+[2026-05-07T08:21:38.917+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.runModifyException(ExceptionReportingUtils.java:54)
+[2026-05-07T08:21:38.980+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.reportFailureToInterceptors(ExceptionReportingUtils.java:38)
+[2026-05-07T08:21:38.981+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:39)
+[2026-05-07T08:21:38.982+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26)
+[2026-05-07T08:21:38.982+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:210)
+[2026-05-07T08:21:38.982+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103)
+[2026-05-07T08:21:38.983+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:173)
+[2026-05-07T08:21:38.983+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$1(BaseSyncClientHandler.java:80)
+[2026-05-07T08:21:38.984+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:182)
+[2026-05-07T08:21:39.005+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:74)
+[2026-05-07T08:21:39.014+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:45)
+[2026-05-07T08:21:39.014+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:53)
+[2026-05-07T08:21:39.015+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DefaultS3Client.listObjectsV2(DefaultS3Client.java:8081)
+[2026-05-07T08:21:39.016+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.lambda$listObjectsV2$66(DelegatingS3Client.java:6525)
+[2026-05-07T08:21:39.016+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.internal.crossregion.S3CrossRegionSyncClient.invokeOperation(S3CrossRegionSyncClient.java:67)
+[2026-05-07T08:21:39.017+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.listObjectsV2(DelegatingS3Client.java:6525)
+[2026-05-07T08:21:39.018+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$listObjects$12(S3AFileSystem.java:3140)
+[2026-05-07T08:21:39.018+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.invokeTrackingDuration(IOStatisticsBinding.java:547)
+[2026-05-07T08:21:39.019+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.statistics.impl.IOStatisticsBinding.lambda$trackDurationOfOperation$5(IOStatisticsBinding.java:528)
+[2026-05-07T08:21:39.020+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2026-05-07T08:21:39.020+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2026-05-07T08:21:39.021+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.listObjects(S3AFileSystem.java:3131)
+[2026-05-07T08:21:39.023+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.s3GetFileStatus(S3AFileSystem.java:4136)
+[2026-05-07T08:21:39.023+0000] {subprocess.py:93} INFO - 	... 46 more
+[2026-05-07T08:21:39.024+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:39.024+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T08:21:39.025+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47)
+[2026-05-07T08:21:39.025+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper2.setLastException(RetryableStageHelper2.java:226)
+[2026-05-07T08:21:39.026+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:65)
+[2026-05-07T08:21:39.035+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:36)
+[2026-05-07T08:21:39.036+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:39.037+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:53)
+[2026-05-07T08:21:39.038+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:35)
+[2026-05-07T08:21:39.039+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:82)
+[2026-05-07T08:21:39.039+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:62)
+[2026-05-07T08:21:39.040+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:43)
+[2026-05-07T08:21:39.040+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:50)
+[2026-05-07T08:21:39.041+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:32)
+[2026-05-07T08:21:39.041+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:39.042+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:39.053+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37)
+[2026-05-07T08:21:39.053+0000] {subprocess.py:93} INFO - 	... 66 more
+[2026-05-07T08:21:39.054+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 1 failure: Unable to execute HTTP request: The target server failed to respond
+[2026-05-07T08:21:39.054+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 2 failure: Unable to execute HTTP request: The target server failed to respond
+[2026-05-07T08:21:39.055+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 3 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:39.055+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 4 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:39.056+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 5 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:39.056+0000] {subprocess.py:93} INFO - Caused by: java.net.UnknownHostException: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:39.068+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2026-05-07T08:21:39.069+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2026-05-07T08:21:39.069+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2026-05-07T08:21:39.070+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2026-05-07T08:21:39.071+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+[2026-05-07T08:21:39.071+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+[2026-05-07T08:21:39.072+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+[2026-05-07T08:21:39.072+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86)
+[2026-05-07T08:21:39.073+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+[2026-05-07T08:21:39.073+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+[2026-05-07T08:21:39.074+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+[2026-05-07T08:21:39.074+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+[2026-05-07T08:21:39.074+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+[2026-05-07T08:21:39.085+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+[2026-05-07T08:21:39.086+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72)
+[2026-05-07T08:21:39.086+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254)
+[2026-05-07T08:21:39.087+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104)
+[2026-05-07T08:21:39.087+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231)
+[2026-05-07T08:21:39.088+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228)
+[2026-05-07T08:21:39.089+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:102)
+[2026-05-07T08:21:39.089+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:79)
+[2026-05-07T08:21:39.090+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:57)
+[2026-05-07T08:21:39.091+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:40)
+[2026-05-07T08:21:38.429+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:38.430+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:38.431+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:38.432+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:38.433+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:74)
+[2026-05-07T08:21:38.433+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:43)
+[2026-05-07T08:21:38.434+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:79)
+[2026-05-07T08:21:38.445+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:41)
+[2026-05-07T08:21:38.446+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:55)
+[2026-05-07T08:21:38.447+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:39)
+[2026-05-07T08:21:38.448+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.executeRequest(RetryableStage2.java:93)
+[2026-05-07T08:21:38.448+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:56)
+[2026-05-07T08:21:38.449+0000] {subprocess.py:93} INFO - 	... 78 more
+[2026-05-07T08:21:38.450+0000] {subprocess.py:93} INFO - 26/05/07 01:49:28 ERROR SparkHadoopMapRedUtil: Error committing the output of task: attempt_202605062245461309380847502614538_0015_m_000094_306
+[2026-05-07T08:21:38.450+0000] {subprocess.py:93} INFO - java.net.UnknownHostException: copyFile(raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000094_306/year=2026/month=4/day=29/part-00094-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet, raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/task_202605062245461309380847502614538_0015_m_000094/year=2026/month=4/day=29/part-00094-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet) on raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000094_306/year=2026/month=4/day=29/part-00094-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.:    software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:38.558+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-05-07T08:21:38.558+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2026-05-07T08:21:38.559+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2026-05-07T08:21:38.560+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2026-05-07T08:21:38.560+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2026-05-07T08:21:38.561+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.wrapWithInnerIOE(ErrorTranslation.java:237)
+[2026-05-07T08:21:38.561+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.maybeExtractIOException(ErrorTranslation.java:207)
+[2026-05-07T08:21:38.563+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:211)
+[2026-05-07T08:21:42.297+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:124)
+[2026-05-07T08:21:42.297+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.copyFile(S3AFileSystem.java:4626)
+[2026-05-07T08:21:42.297+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.access$2200(S3AFileSystem.java:301)
+[2026-05-07T08:21:43.953+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem$OperationCallbacksImpl.copyFile(S3AFileSystem.java:2677)
+[2026-05-07T08:21:43.954+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.copySource(RenameOperation.java:596)
+[2026-05-07T08:21:43.954+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.lambda$initiateCopy$2(RenameOperation.java:568)
+[2026-05-07T08:21:43.955+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.store.audit.AuditingFunctions.lambda$callableWithinAuditSpan$3(AuditingFunctions.java:119)
+[2026-05-07T08:21:43.955+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.CallableSupplier.get(CallableSupplier.java:88)
+[2026-05-07T08:21:43.956+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+[2026-05-07T08:21:43.956+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.SemaphoredDelegatingExecutor$RunnableWithPermitRelease.run(SemaphoredDelegatingExecutor.java:225)
+[2026-05-07T08:21:43.957+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T08:21:43.957+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T08:21:43.957+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T08:21:43.958+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.
+[2026-05-07T08:21:43.958+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T08:21:44.950+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.interceptor.HelpfulUnknownHostExceptionInterceptor.modifyException(HelpfulUnknownHostExceptionInterceptor.java:59)
+[2026-05-07T08:21:44.950+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.interceptor.ExecutionInterceptorChain.modifyException(ExecutionInterceptorChain.java:181)
+[2026-05-07T08:21:44.951+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.runModifyException(ExceptionReportingUtils.java:54)
+[2026-05-07T08:21:44.951+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.reportFailureToInterceptors(ExceptionReportingUtils.java:38)
+[2026-05-07T08:21:44.951+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:39)
+[2026-05-07T08:21:44.952+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26)
+[2026-05-07T08:21:44.952+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:210)
+[2026-05-07T08:21:44.952+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103)
+[2026-05-07T08:21:44.953+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:173)
+[2026-05-07T08:21:44.953+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$1(BaseSyncClientHandler.java:80)
+[2026-05-07T08:21:44.953+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:182)
+[2026-05-07T08:21:44.954+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:74)
+[2026-05-07T08:21:44.954+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:45)
+[2026-05-07T08:21:44.954+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:53)
+[2026-05-07T08:21:44.955+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DefaultS3Client.headObject(DefaultS3Client.java:7029)
+[2026-05-07T08:21:44.955+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.lambda$headObject$56(DelegatingS3Client.java:5678)
+[2026-05-07T08:21:44.956+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.internal.crossregion.S3CrossRegionSyncClient.invokeOperation(S3CrossRegionSyncClient.java:67)
+[2026-05-07T08:21:44.956+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.headObject(DelegatingS3Client.java:5678)
+[2026-05-07T08:21:44.966+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.lambda$headObject$3(S3AStoreImpl.java:688)
+[2026-05-07T08:21:44.966+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2026-05-07T08:21:44.967+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2026-05-07T08:21:44.967+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.headObject(S3AStoreImpl.java:675)
+[2026-05-07T08:21:44.968+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.getObjectMetadata(S3AFileSystem.java:3088)
+[2026-05-07T08:21:44.968+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$copyFile$26(S3AFileSystem.java:4628)
+[2026-05-07T08:21:44.969+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:122)
+[2026-05-07T08:21:44.969+0000] {subprocess.py:93} INFO - 	... 12 more
+[2026-05-07T08:21:44.970+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:44.970+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T08:21:44.970+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47)
+[2026-05-07T08:21:44.971+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper2.setLastException(RetryableStageHelper2.java:226)
+[2026-05-07T08:21:44.971+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:65)
+[2026-05-07T08:21:44.971+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:36)
+[2026-05-07T08:21:44.972+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:44.972+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:53)
+[2026-05-07T08:21:44.972+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:35)
+[2026-05-07T08:21:44.973+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:82)
+[2026-05-07T08:21:44.973+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:62)
+[2026-05-07T08:21:44.983+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:43)
+[2026-05-07T08:21:44.983+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:50)
+[2026-05-07T08:21:44.984+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:32)
+[2026-05-07T08:21:44.985+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:44.986+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:44.986+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:37)
+[2026-05-07T08:21:44.987+0000] {subprocess.py:93} INFO - 	... 32 more
+[2026-05-07T08:21:44.988+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 1 failure: Unable to execute HTTP request: The target server failed to respond
+[2026-05-07T08:21:44.988+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 2 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:44.989+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 3 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:44.999+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 4 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:45.000+0000] {subprocess.py:93} INFO - 	Suppressed: software.amazon.awssdk.core.exception.SdkClientException: Request attempt 5 failure: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:45.000+0000] {subprocess.py:93} INFO - Caused by: java.net.UnknownHostException: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:45.001+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+[2026-05-07T08:21:45.001+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2026-05-07T08:21:45.002+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+[2026-05-07T08:21:45.002+0000] {subprocess.py:93} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+[2026-05-07T08:21:45.003+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+[2026-05-07T08:21:45.003+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+[2026-05-07T08:21:45.004+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:376)
+[2026-05-07T08:21:45.004+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.conn.ClientConnectionManagerFactory$DelegatingHttpClientConnectionManager.connect(ClientConnectionManagerFactory.java:86)
+[2026-05-07T08:21:45.005+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+[2026-05-07T08:21:45.016+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+[2026-05-07T08:21:45.016+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+[2026-05-07T08:21:45.017+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+[2026-05-07T08:21:45.017+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+[2026-05-07T08:21:45.018+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.thirdparty.org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+[2026-05-07T08:21:45.018+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.internal.impl.ApacheSdkHttpClient.execute(ApacheSdkHttpClient.java:72)
+[2026-05-07T08:21:45.019+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.execute(ApacheHttpClient.java:254)
+[2026-05-07T08:21:45.019+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient.access$500(ApacheHttpClient.java:104)
+[2026-05-07T08:21:45.020+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:231)
+[2026-05-07T08:21:45.020+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.http.apache.ApacheHttpClient$1.call(ApacheHttpClient.java:228)
+[2026-05-07T08:21:45.021+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.util.MetricUtils.measureDurationUnsafe(MetricUtils.java:102)
+[2026-05-07T08:21:45.021+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.executeHttpRequest(MakeHttpRequestStage.java:79)
+[2026-05-07T08:21:45.022+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:57)
+[2026-05-07T08:21:45.033+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeHttpRequestStage.execute(MakeHttpRequestStage.java:40)
+[2026-05-07T08:21:45.033+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:45.034+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:45.035+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:45.036+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:45.037+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:74)
+[2026-05-07T08:21:45.037+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptTimeoutTrackingStage.execute(ApiCallAttemptTimeoutTrackingStage.java:43)
+[2026-05-07T08:21:45.038+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:79)
+[2026-05-07T08:21:45.038+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.TimeoutExceptionHandlingStage.execute(TimeoutExceptionHandlingStage.java:41)
+[2026-05-07T08:21:45.049+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:55)
+[2026-05-07T08:21:46.391+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallAttemptMetricCollectionStage.execute(ApiCallAttemptMetricCollectionStage.java:39)
+[2026-05-07T08:21:46.392+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.executeRequest(RetryableStage2.java:93)
+[2026-05-07T08:21:46.393+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:56)
+[2026-05-07T08:21:46.394+0000] {subprocess.py:93} INFO - 	... 44 more
+[2026-05-07T08:21:46.399+0000] {subprocess.py:93} INFO - 26/05/07 01:49:23 ERROR SparkHadoopMapRedUtil: Error committing the output of task: attempt_202605062245461309380847502614538_0015_m_000093_305
+[2026-05-07T08:21:46.399+0000] {subprocess.py:93} INFO - java.net.UnknownHostException: copyFile(raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000093_305/year=2026/month=4/day=29/part-00093-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet, raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/task_202605062245461309380847502614538_0015_m_000093/year=2026/month=4/day=29/part-00093-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet) on raw/silver/exposures/.spark-staging-e20d9e8b-dbde-441d-b40d-e7b019de44c7/_temporary/0/_temporary/attempt_202605062245461309380847502614538_0015_m_000093_305/year=2026/month=4/day=29/part-00093-e20d9e8b-dbde-441d-b40d-e7b019de44c7.c000.snappy.parquet: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.:    software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:46.400+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2026-05-07T08:21:46.401+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2026-05-07T08:21:46.401+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2026-05-07T08:21:46.402+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2026-05-07T08:21:46.403+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2026-05-07T08:21:46.403+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.wrapWithInnerIOE(ErrorTranslation.java:237)
+[2026-05-07T08:21:46.404+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.ErrorTranslation.maybeExtractIOException(ErrorTranslation.java:207)
+[2026-05-07T08:21:46.404+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AUtils.translateException(S3AUtils.java:211)
+[2026-05-07T08:21:46.405+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:124)
+[2026-05-07T08:21:46.418+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.copyFile(S3AFileSystem.java:4626)
+[2026-05-07T08:21:46.419+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.access$2200(S3AFileSystem.java:301)
+[2026-05-07T08:21:46.419+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem$OperationCallbacksImpl.copyFile(S3AFileSystem.java:2677)
+[2026-05-07T08:21:46.420+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.copySource(RenameOperation.java:596)
+[2026-05-07T08:21:46.420+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.RenameOperation.lambda$initiateCopy$2(RenameOperation.java:568)
+[2026-05-07T08:21:46.421+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.store.audit.AuditingFunctions.lambda$callableWithinAuditSpan$3(AuditingFunctions.java:119)
+[2026-05-07T08:21:46.421+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.CallableSupplier.get(CallableSupplier.java:88)
+[2026-05-07T08:21:46.422+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+[2026-05-07T08:21:46.422+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.util.SemaphoredDelegatingExecutor$RunnableWithPermitRelease.run(SemaphoredDelegatingExecutor.java:225)
+[2026-05-07T08:21:46.558+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T08:21:46.559+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T08:21:46.559+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T08:21:46.559+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Received an UnknownHostException when attempting to interact with a service. See cause for the exact endpoint that is failing to resolve. If this is happening on an endpoint that previously worked, there may be a network connectivity issue or your DNS cache could be storing endpoints for too long.
+[2026-05-07T08:21:46.560+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T08:21:46.560+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.interceptor.HelpfulUnknownHostExceptionInterceptor.modifyException(HelpfulUnknownHostExceptionInterceptor.java:59)
+[2026-05-07T08:21:46.560+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.interceptor.ExecutionInterceptorChain.modifyException(ExecutionInterceptorChain.java:181)
+[2026-05-07T08:21:46.560+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.runModifyException(ExceptionReportingUtils.java:54)
+[2026-05-07T08:21:46.561+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.ExceptionReportingUtils.reportFailureToInterceptors(ExceptionReportingUtils.java:38)
+[2026-05-07T08:21:46.561+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:39)
+[2026-05-07T08:21:46.561+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ExecutionFailureExceptionReportingStage.execute(ExecutionFailureExceptionReportingStage.java:26)
+[2026-05-07T08:21:46.562+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.AmazonSyncHttpClient$RequestExecutionBuilderImpl.execute(AmazonSyncHttpClient.java:210)
+[2026-05-07T08:21:46.562+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.invoke(BaseSyncClientHandler.java:103)
+[2026-05-07T08:21:46.564+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.doExecute(BaseSyncClientHandler.java:173)
+[2026-05-07T08:21:46.565+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.lambda$execute$1(BaseSyncClientHandler.java:80)
+[2026-05-07T08:21:46.565+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.measureApiCallSuccess(BaseSyncClientHandler.java:182)
+[2026-05-07T08:21:46.566+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.handler.BaseSyncClientHandler.execute(BaseSyncClientHandler.java:74)
+[2026-05-07T08:21:46.566+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.client.handler.SdkSyncClientHandler.execute(SdkSyncClientHandler.java:45)
+[2026-05-07T08:21:46.567+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.awscore.client.handler.AwsSyncClientHandler.execute(AwsSyncClientHandler.java:53)
+[2026-05-07T08:21:46.568+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DefaultS3Client.headObject(DefaultS3Client.java:7029)
+[2026-05-07T08:21:46.568+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.lambda$headObject$56(DelegatingS3Client.java:5678)
+[2026-05-07T08:21:46.569+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.internal.crossregion.S3CrossRegionSyncClient.invokeOperation(S3CrossRegionSyncClient.java:67)
+[2026-05-07T08:21:46.579+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.services.s3.DelegatingS3Client.headObject(DelegatingS3Client.java:5678)
+[2026-05-07T08:21:46.580+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.lambda$headObject$3(S3AStoreImpl.java:688)
+[2026-05-07T08:21:46.580+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:468)
+[2026-05-07T08:21:46.581+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.retryUntranslated(Invoker.java:431)
+[2026-05-07T08:21:46.581+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.impl.S3AStoreImpl.headObject(S3AStoreImpl.java:675)
+[2026-05-07T08:21:46.582+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.getObjectMetadata(S3AFileSystem.java:3088)
+[2026-05-07T08:21:46.582+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.S3AFileSystem.lambda$copyFile$26(S3AFileSystem.java:4628)
+[2026-05-07T08:21:46.583+0000] {subprocess.py:93} INFO - 	at org.apache.hadoop.fs.s3a.Invoker.once(Invoker.java:122)
+[2026-05-07T08:21:46.583+0000] {subprocess.py:93} INFO - 	... 12 more
+[2026-05-07T08:21:46.584+0000] {subprocess.py:93} INFO - Caused by: software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: telemetry-lake-dev.s3.eu-north-1.amazonaws.com
+[2026-05-07T08:21:46.584+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException$BuilderImpl.build(SdkClientException.java:111)
+[2026-05-07T08:21:46.584+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.exception.SdkClientException.create(SdkClientException.java:47)
+[2026-05-07T08:21:46.585+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper2.setLastException(RetryableStageHelper2.java:226)
+[2026-05-07T08:21:46.585+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:65)
+[2026-05-07T08:21:46.585+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.RetryableStage2.execute(RetryableStage2.java:36)
+[2026-05-07T08:21:46.585+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:46.586+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:53)
+[2026-05-07T08:21:46.586+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.StreamManagingStage.execute(StreamManagingStage.java:35)
+[2026-05-07T08:21:46.586+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.executeWithTimer(ApiCallTimeoutTrackingStage.java:82)
+[2026-05-07T08:21:45.978+0000] {process_utils.py:132} INFO - Sending 15 to group 5156. PIDs of all processes in the group: [5157, 5161, 5170, 5156]
+[2026-05-07T08:21:46.587+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:62)
+[2026-05-07T08:21:47.339+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallTimeoutTrackingStage.execute(ApiCallTimeoutTrackingStage.java:43)
+[2026-05-07T08:21:47.340+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:50)
+[2026-05-07T08:21:47.341+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.stages.ApiCallMetricCollectionStage.execute(ApiCallMetricCollectionStage.java:32)
+[2026-05-07T08:21:47.341+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:47.341+0000] {subprocess.py:93} INFO - 	at software.amazon.awssdk.core.internal.http.pipeline.RequestPipelineBuilder$ComposingRequestPipelineStage.execute(RequestPipelineBuilder.java:206)
+[2026-05-07T08:21:47.255+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 5156
+[2026-05-07T08:21:48.897+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-05-07T08:21:57.610+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-05-07T08:22:01.591+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-07T08:22:20.292+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 234, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 93, in run_command
+    self.log.info("%s", line)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/log/file_task_handler.py", line 248, in emit
+    self.handler.emit(record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1280, in emit
+    StreamHandler.emit(self, record)
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1160, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 999, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 705, in format
+    record.asctime = self.formatTime(record, self.datefmt)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/log/timezone_aware.py", line 47, in formatTime
+    s += dt.strftime(self.default_tz_format)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-05-07T08:22:21.762+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=ab_test_medallion_pipeline, task_id=process_bronze_to_silver, run_id=manual__2026-05-06T22:42:23.388491+00:00, execution_date=20260506T224223, start_date=20260506T224227, end_date=20260507T082221
+[2026-05-07T08:22:23.382+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=5156, status='terminated', exitcode=2, started='22:42:27') (5156) terminated with exit code 2
+[2026-05-07T08:22:23.686+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=5157, status='terminated', started='22:42:29') (5157) terminated with exit code None
+[2026-05-07T08:22:29.468+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=5161, status='terminated', started='22:42:31') (5161) terminated with exit code None
+[2026-05-07T08:22:29.470+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=5170, status='terminated', started='22:42:31') (5170) terminated with exit code None

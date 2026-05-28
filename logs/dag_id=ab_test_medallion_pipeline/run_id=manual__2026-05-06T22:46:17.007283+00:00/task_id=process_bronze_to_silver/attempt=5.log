@@ -1,0 +1,704 @@
+[2026-05-07T10:13:09.560+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-07T10:13:10.520+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:46:17.007283+00:00 [queued]>
+[2026-05-07T10:13:10.562+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:46:17.007283+00:00 [queued]>
+[2026-05-07T10:13:10.562+0000] {taskinstance.py:2306} INFO - Starting attempt 5 of 2
+[2026-05-07T10:13:10.701+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): process_bronze_to_silver> on 2026-05-06 22:46:17.007283+00:00
+[2026-05-07T10:13:10.900+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=773) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-07T10:13:10.910+0000] {standard_task_runner.py:63} INFO - Started process 776 to run task
+[2026-05-07T10:13:10.907+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ab_test_medallion_pipeline', 'process_bronze_to_silver', 'manual__2026-05-06T22:46:17.007283+00:00', '--job-id', '68', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_dag.py', '--cfg-path', '/tmp/tmpodro5k02']
+[2026-05-07T10:13:10.911+0000] {standard_task_runner.py:91} INFO - Job 68: Subtask process_bronze_to_silver
+[2026-05-07T10:13:11.225+0000] {task_command.py:426} INFO - Running <TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:46:17.007283+00:00 [running]> on host 2185890eddc3
+[2026-05-07T10:13:11.754+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_platform' AIRFLOW_CTX_DAG_ID='ab_test_medallion_pipeline' AIRFLOW_CTX_TASK_ID='process_bronze_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-05-06T22:46:17.007283+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-06T22:46:17.007283+00:00'
+[2026-05-07T10:13:11.757+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-07T10:13:11.953+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-07T10:13:11.960+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/transforms/silver_transform.py']
+[2026-05-07T10:13:12.096+0000] {subprocess.py:86} INFO - Output:
+[2026-05-07T10:13:20.841+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-05-07T10:13:26.366+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-05-07T10:13:26.723+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2.5.2/cache
+[2026-05-07T10:13:26.724+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2.5.2/jars
+[2026-05-07T10:13:26.742+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+[2026-05-07T10:13:26.742+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2026-05-07T10:13:26.743+0000] {subprocess.py:93} INFO - software.amazon.awssdk#bundle added as a dependency
+[2026-05-07T10:13:26.747+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-0cb85623-64e5-4e3b-8904-eb73211109f2;1.0
+[2026-05-07T10:13:26.748+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-07T10:13:27.717+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 in central
+[2026-05-07T10:13:28.173+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 in central
+[2026-05-07T10:13:28.374+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.9.1 in central
+[2026-05-07T10:13:28.746+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2026-05-07T10:13:28.815+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.8 in central
+[2026-05-07T10:13:28.865+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.17 in central
+[2026-05-07T10:13:28.930+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.4.2 in central
+[2026-05-07T10:13:29.010+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.4.2 in central
+[2026-05-07T10:13:29.063+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2026-05-07T10:13:29.116+0000] {subprocess.py:93} INFO - 	found org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 in central
+[2026-05-07T10:13:29.263+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.12.1 in central
+[2026-05-07T10:13:29.476+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.4.2 in central
+[2026-05-07T10:13:29.670+0000] {subprocess.py:93} INFO - 	found software.amazon.awssdk#bundle;2.29.52 in central
+[2026-05-07T10:13:29.846+0000] {subprocess.py:93} INFO - 	found software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 in central
+[2026-05-07T10:13:29.996+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;2.1.4.Final in central
+[2026-05-07T10:13:33.271+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.10.8/snappy-java-1.1.10.8.jar ...
+[2026-05-07T10:13:33.814+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.10.8!snappy-java.jar(bundle) (3608ms)
+[2026-05-07T10:13:33.844+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 3411ms :: artifacts dl 3686ms
+[2026-05-07T10:13:33.844+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2026-05-07T10:13:33.858+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2026-05-07T10:13:33.860+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.12.1 from central in [default]
+[2026-05-07T10:13:33.868+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.4.2 from central in [default]
+[2026-05-07T10:13:33.872+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.4.2 from central in [default]
+[2026-05-07T10:13:33.875+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.4.2 from central in [default]
+[2026-05-07T10:13:33.876+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.9.1 from central in [default]
+[2026-05-07T10:13:33.880+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 from central in [default]
+[2026-05-07T10:13:33.880+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 from central in [default]
+[2026-05-07T10:13:33.881+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2026-05-07T10:13:33.881+0000] {subprocess.py:93} INFO - 	org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 from central in [default]
+[2026-05-07T10:13:33.882+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.17 from central in [default]
+[2026-05-07T10:13:33.887+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;2.1.4.Final from central in [default]
+[2026-05-07T10:13:33.887+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.8 from central in [default]
+[2026-05-07T10:13:33.888+0000] {subprocess.py:93} INFO - 	software.amazon.awssdk#bundle;2.29.52 from central in [default]
+[2026-05-07T10:13:33.888+0000] {subprocess.py:93} INFO - 	software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 from central in [default]
+[2026-05-07T10:13:33.889+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-07T10:13:33.889+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-05-07T10:13:33.890+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-05-07T10:13:33.898+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-07T10:13:33.899+0000] {subprocess.py:93} INFO - 	|      default     |   15  |   0   |   0   |   0   ||   15  |   1   |
+[2026-05-07T10:13:33.899+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-07T10:13:33.906+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-0cb85623-64e5-4e3b-8904-eb73211109f2
+[2026-05-07T10:13:33.907+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-07T10:13:59.456+0000] {subprocess.py:93} INFO - 	15 artifacts copied, 0 already retrieved (693029kB/25550ms)
+[2026-05-07T10:14:08.575+0000] {subprocess.py:93} INFO - 26/05/07 10:14:08 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-05-07T10:14:20.162+0000] {subprocess.py:93} INFO - Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+[2026-05-07T10:14:20.255+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-05-07T10:14:20.281+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-05-07T10:14:46.292+0000] {subprocess.py:93} INFO - 26/05/07 10:14:46 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-05-07T10:15:47.187+0000] {subprocess.py:93} INFO - 26/05/07 10:15:47 ERROR Inbox: Ignoring error
+[2026-05-07T10:15:47.192+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:15:47.194+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:15:47.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:15:47.206+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:15:47.207+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:15:47.217+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:15:47.218+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:15:47.223+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:15:47.228+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:15:47.229+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:15:47.230+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:15:47.231+0000] {subprocess.py:93} INFO - 26/05/07 10:15:47 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:15:47.231+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:15:47.232+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:15:47.233+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:15:47.240+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:15:47.247+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:15:47.247+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:15:47.248+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:15:47.249+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:15:47.250+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:15:47.251+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:15:47.253+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:15:47.254+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:15:47.255+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:15:47.258+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:15:47.266+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:15:47.267+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:15:47.270+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:15:47.271+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:15:47.271+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:15:47.272+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:15:47.273+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:15:47.274+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:15:47.277+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:15:47.284+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:15:47.286+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:15:47.287+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:15:47.289+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:15:47.290+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:15:56.163+0000] {subprocess.py:93} INFO - 26/05/07 10:15:56 ERROR Inbox: Ignoring error
+[2026-05-07T10:15:56.167+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:15:56.168+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:15:56.176+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:15:56.194+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:15:56.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:15:56.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:15:56.196+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:15:56.196+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:15:56.198+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:15:56.202+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:15:56.204+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:15:56.211+0000] {subprocess.py:93} INFO - 26/05/07 10:15:56 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:15:56.212+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:15:56.218+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:15:56.219+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:15:56.220+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:15:56.223+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:15:56.227+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:15:56.228+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:15:56.231+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:15:56.232+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:15:56.232+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:15:56.233+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:15:56.233+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:15:56.233+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:15:56.234+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:15:56.234+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:15:56.234+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:15:56.234+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:15:56.239+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:15:56.243+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:15:56.245+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:15:56.246+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:15:56.247+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:15:56.248+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:15:56.249+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:15:56.251+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:15:56.252+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:15:56.253+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:15:56.254+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:16:06.154+0000] {subprocess.py:93} INFO - 26/05/07 10:16:06 ERROR Inbox: Ignoring error
+[2026-05-07T10:16:06.158+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:06.159+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:06.165+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:06.165+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:06.166+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:06.166+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:06.169+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:06.173+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:06.174+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:06.175+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:06.181+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:06.210+0000] {subprocess.py:93} INFO - 26/05/07 10:16:06 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:16:06.211+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:06.215+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:06.220+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:06.221+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:06.231+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:16:06.232+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:16:06.234+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:16:06.235+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:16:06.237+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:16:06.238+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:16:06.245+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:16:06.246+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:16:06.255+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:16:06.255+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:16:06.256+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:16:06.257+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:16:06.257+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:06.258+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:06.258+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:06.259+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:06.267+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:06.268+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:06.270+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:06.273+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:06.274+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:06.276+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:06.304+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:06.305+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:16:16.163+0000] {subprocess.py:93} INFO - 26/05/07 10:16:16 ERROR Inbox: Ignoring error
+[2026-05-07T10:16:16.171+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:16.171+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:16.172+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:16.173+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:16.173+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:16.174+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:16.174+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:16.175+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:16.188+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:16.188+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:16.189+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:16.190+0000] {subprocess.py:93} INFO - 26/05/07 10:16:16 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:16:16.194+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:16.194+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:16.194+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:16.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:16.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:16:16.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:16:16.195+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:16:16.196+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:16:16.196+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:16:16.196+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:16:16.196+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:16:16.196+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:16:16.197+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:16:16.198+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:16:16.199+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:16:16.200+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:16:16.209+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:16.210+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:16.211+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:16.221+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:16.221+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:16.222+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:16.223+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:16.231+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:16.237+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:16.237+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:16.238+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:16.238+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:16:25.255+0000] {subprocess.py:93} INFO - 26/05/07 10:16:25 ERROR Inbox: Ignoring error
+[2026-05-07T10:16:25.265+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:25.278+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:25.279+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:25.280+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:25.280+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:25.281+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:25.282+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:25.283+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:25.284+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:25.292+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:25.296+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:25.298+0000] {subprocess.py:93} INFO - 26/05/07 10:16:25 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:16:25.299+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:25.300+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:25.334+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:25.338+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:25.339+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:16:25.340+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:16:25.344+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:16:25.345+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:16:25.346+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:16:25.348+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:16:25.350+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:16:25.352+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:16:25.366+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:16:25.368+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:16:25.368+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:16:25.369+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:16:25.370+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:25.370+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:25.371+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:25.372+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:25.372+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:25.373+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:25.374+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:25.376+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:25.377+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:25.377+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:25.378+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:25.378+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:16:35.263+0000] {subprocess.py:93} INFO - 26/05/07 10:16:35 ERROR Inbox: Ignoring error
+[2026-05-07T10:16:35.273+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:35.275+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:35.280+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:35.281+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:35.282+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:35.283+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:35.284+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:35.295+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:35.298+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:35.299+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:35.301+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:35.306+0000] {subprocess.py:93} INFO - 26/05/07 10:16:35 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:16:35.315+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:35.321+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:35.324+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:35.327+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:35.331+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:16:35.332+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:16:35.333+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:16:35.334+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:16:35.334+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:16:35.335+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:16:35.336+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:16:35.340+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:16:35.357+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:16:35.362+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:16:35.363+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:16:35.365+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:16:35.365+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:35.367+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:35.378+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:35.386+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:35.388+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:35.389+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:35.393+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:35.395+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:35.397+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:35.401+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:35.404+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:35.407+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:16:45.245+0000] {subprocess.py:93} INFO - 26/05/07 10:16:45 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:16:45.251+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:45.253+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:45.253+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:45.254+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:45.255+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:16:45.256+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:16:45.257+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:16:45.258+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:16:45.259+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:16:45.260+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:16:45.261+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:16:45.261+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:16:45.262+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:16:45.262+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:16:45.265+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:16:45.272+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:16:45.273+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:45.274+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:45.275+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:45.276+0000] {subprocess.py:93} INFO - Caused by: java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:45.277+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:45.278+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:45.279+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:45.280+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:45.281+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:45.281+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:45.283+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:45.283+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:16:45.284+0000] {subprocess.py:93} INFO - 26/05/07 10:16:45 ERROR Inbox: Ignoring error
+[2026-05-07T10:16:45.285+0000] {subprocess.py:93} INFO - java.lang.NullPointerException: Cannot invoke "org.apache.spark.storage.BlockManagerId.executorId()" because "idWithoutTopologyInfo" is null
+[2026-05-07T10:16:45.286+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:696)
+[2026-05-07T10:16:45.286+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:45.287+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:45.288+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:45.290+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:45.291+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:45.292+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:45.295+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:45.296+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:45.297+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:54.483+0000] {subprocess.py:93} INFO - 26/05/07 10:16:54 WARN Executor: Issue communicating with driver in heartbeater
+[2026-05-07T10:16:54.493+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:54.495+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:54.499+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:54.502+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:54.502+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:101)
+[2026-05-07T10:16:54.503+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:85)
+[2026-05-07T10:16:54.503+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMaster.registerBlockManager(BlockManagerMaster.scala:81)
+[2026-05-07T10:16:54.503+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManager.reregister(BlockManager.scala:674)
+[2026-05-07T10:16:54.504+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1363)
+[2026-05-07T10:16:54.505+0000] {subprocess.py:93} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:356)
+[2026-05-07T10:16:54.506+0000] {subprocess.py:93} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+[2026-05-07T10:16:54.506+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1941)
+[2026-05-07T10:16:54.506+0000] {subprocess.py:93} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2026-05-07T10:16:54.506+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+[2026-05-07T10:16:54.507+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2026-05-07T10:16:54.507+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2026-05-07T10:16:54.507+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:54.508+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:54.508+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:54.508+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:54.508+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:54.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:54.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:54.509+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[2026-05-07T10:16:54.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[2026-05-07T10:16:54.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.RpcUtils$.makeDriverRef(RpcUtils.scala:36)
+[2026-05-07T10:16:54.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.driverEndpoint$lzycompute(BlockManagerMasterEndpoint.scala:132)
+[2026-05-07T10:16:54.510+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$driverEndpoint(BlockManagerMasterEndpoint.scala:131)
+[2026-05-07T10:16:54.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$lzycompute$1(BlockManagerMasterEndpoint.scala:707)
+[2026-05-07T10:16:54.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$1(BlockManagerMasterEndpoint.scala:706)
+[2026-05-07T10:16:54.511+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:746)
+[2026-05-07T10:16:54.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:54.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:54.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:54.512+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:54.513+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:54.513+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:54.513+0000] {subprocess.py:93} INFO - 	... 3 more
+[2026-05-07T10:16:54.514+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.rpc.RpcEndpointNotFoundException: Cannot find endpoint: spark://CoarseGrainedScheduler@2185890eddc3:41591
+[2026-05-07T10:16:54.514+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1(NettyRpcEnv.scala:151)
+[2026-05-07T10:16:54.515+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1$adapted(NettyRpcEnv.scala:147)
+[2026-05-07T10:16:54.516+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+[2026-05-07T10:16:54.516+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-07T10:16:54.516+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-07T10:16:54.517+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.517+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-07T10:16:54.518+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.518+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-07T10:16:54.518+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-07T10:16:54.518+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-07T10:16:54.519+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.519+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-07T10:16:54.519+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.519+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-07T10:16:54.520+0000] {subprocess.py:93} INFO - 	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:222)
+[2026-05-07T10:16:54.520+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.520+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:368)
+[2026-05-07T10:16:54.520+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.521+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-07T10:16:54.521+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess(Promise.scala:99)
+[2026-05-07T10:16:54.521+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess$(Promise.scala:99)
+[2026-05-07T10:16:54.521+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.trySuccess(Promise.scala:104)
+[2026-05-07T10:16:54.522+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.onSuccess$1(NettyRpcEnv.scala:228)
+[2026-05-07T10:16:54.522+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5(NettyRpcEnv.scala:242)
+[2026-05-07T10:16:54.522+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5$adapted(NettyRpcEnv.scala:241)
+[2026-05-07T10:16:54.522+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:517)
+[2026-05-07T10:16:54.523+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-07T10:16:54.523+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-07T10:16:54.523+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.523+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-07T10:16:54.524+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.524+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-07T10:16:54.524+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete(Promise.scala:57)
+[2026-05-07T10:16:54.524+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete$(Promise.scala:56)
+[2026-05-07T10:16:54.525+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:104)
+[2026-05-07T10:16:54.525+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success(Promise.scala:91)
+[2026-05-07T10:16:54.525+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success$(Promise.scala:91)
+[2026-05-07T10:16:54.526+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.success(Promise.scala:104)
+[2026-05-07T10:16:54.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.LocalNettyRpcCallContext.send(NettyRpcCallContext.scala:50)
+[2026-05-07T10:16:54.526+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcCallContext.reply(NettyRpcCallContext.scala:32)
+[2026-05-07T10:16:54.527+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.RpcEndpointVerifier$$anonfun$receiveAndReply$1.applyOrElse(RpcEndpointVerifier.scala:31)
+[2026-05-07T10:16:54.527+0000] {subprocess.py:93} INFO - 	... 8 more
+[2026-05-07T10:16:54.527+0000] {subprocess.py:93} INFO - 26/05/07 10:16:54 ERROR Inbox: Ignoring error
+[2026-05-07T10:16:54.528+0000] {subprocess.py:93} INFO - org.apache.spark.SparkException: Exception thrown in awaitResult:
+[2026-05-07T10:16:54.528+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.SparkThreadUtils$.awaitResult(SparkThreadUtils.scala:53)
+[2026-05-07T10:16:54.528+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:359)
+[2026-05-07T10:16:54.529+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2026-05-07T10:16:54.529+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRefByURI(RpcEnv.scala:102)
+[2026-05-07T10:16:54.529+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.RpcEnv.setupEndpointRef(RpcEnv.scala:110)
+[2026-05-07T10:16:54.530+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.RpcUtils$.makeDriverRef(RpcUtils.scala:36)
+[2026-05-07T10:16:54.530+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.driverEndpoint$lzycompute(BlockManagerMasterEndpoint.scala:132)
+[2026-05-07T10:16:54.530+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$driverEndpoint(BlockManagerMasterEndpoint.scala:131)
+[2026-05-07T10:16:54.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$lzycompute$1(BlockManagerMasterEndpoint.scala:707)
+[2026-05-07T10:16:54.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.isExecutorAlive$1(BlockManagerMasterEndpoint.scala:706)
+[2026-05-07T10:16:54.531+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint.org$apache$spark$storage$BlockManagerMasterEndpoint$$register(BlockManagerMasterEndpoint.scala:746)
+[2026-05-07T10:16:54.532+0000] {subprocess.py:93} INFO - 	at org.apache.spark.storage.BlockManagerMasterEndpoint$$anonfun$receiveAndReply$1.applyOrElse(BlockManagerMasterEndpoint.scala:141)
+[2026-05-07T10:16:54.533+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:104)
+[2026-05-07T10:16:54.534+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:216)
+[2026-05-07T10:16:54.534+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+[2026-05-07T10:16:54.535+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:76)
+[2026-05-07T10:16:54.536+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:42)
+[2026-05-07T10:16:54.537+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2026-05-07T10:16:54.537+0000] {subprocess.py:93} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2026-05-07T10:16:54.538+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2026-05-07T10:16:54.538+0000] {subprocess.py:93} INFO - Caused by: org.apache.spark.rpc.RpcEndpointNotFoundException: Cannot find endpoint: spark://CoarseGrainedScheduler@2185890eddc3:41591
+[2026-05-07T10:16:54.539+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1(NettyRpcEnv.scala:151)
+[2026-05-07T10:16:54.540+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$asyncSetupEndpointRefByURI$1$adapted(NettyRpcEnv.scala:147)
+[2026-05-07T10:16:54.540+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+[2026-05-07T10:16:54.541+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-07T10:16:54.541+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-07T10:16:54.541+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.542+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-07T10:16:54.542+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.542+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-07T10:16:54.542+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-07T10:16:54.543+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-07T10:16:54.543+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.543+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-07T10:16:54.544+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.544+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:537)
+[2026-05-07T10:16:54.544+0000] {subprocess.py:93} INFO - 	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:222)
+[2026-05-07T10:16:54.545+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.545+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:368)
+[2026-05-07T10:16:54.546+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.546+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-07T10:16:54.546+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess(Promise.scala:99)
+[2026-05-07T10:16:54.547+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.trySuccess$(Promise.scala:99)
+[2026-05-07T10:16:54.547+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.trySuccess(Promise.scala:104)
+[2026-05-07T10:16:54.547+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.onSuccess$1(NettyRpcEnv.scala:228)
+[2026-05-07T10:16:54.547+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5(NettyRpcEnv.scala:242)
+[2026-05-07T10:16:54.548+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcEnv.$anonfun$askAbortable$5$adapted(NettyRpcEnv.scala:241)
+[2026-05-07T10:16:54.548+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:517)
+[2026-05-07T10:16:54.549+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.ThreadUtils$$anon$1.execute(ThreadUtils.scala:99)
+[2026-05-07T10:16:54.550+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.ExecutionContextImpl.execute(ExecutionContextImpl.scala:21)
+[2026-05-07T10:16:54.551+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:462)
+[2026-05-07T10:16:54.551+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:371)
+[2026-05-07T10:16:54.551+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:295)
+[2026-05-07T10:16:54.552+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+[2026-05-07T10:16:54.552+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete(Promise.scala:57)
+[2026-05-07T10:16:54.553+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.complete$(Promise.scala:56)
+[2026-05-07T10:16:54.554+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:104)
+[2026-05-07T10:16:54.554+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success(Promise.scala:91)
+[2026-05-07T10:16:54.554+0000] {subprocess.py:93} INFO - 	at scala.concurrent.Promise.success$(Promise.scala:91)
+[2026-05-07T10:16:54.554+0000] {subprocess.py:93} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.success(Promise.scala:104)
+[2026-05-07T10:16:54.555+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.LocalNettyRpcCallContext.send(NettyRpcCallContext.scala:50)
+[2026-05-07T10:16:54.555+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.NettyRpcCallContext.reply(NettyRpcCallContext.scala:32)
+[2026-05-07T10:16:54.555+0000] {subprocess.py:93} INFO - 	at org.apache.spark.rpc.netty.RpcEndpointVerifier$$anonfun$receiveAndReply$1.applyOrElse(RpcEndpointVerifier.scala:31)
+[2026-05-07T10:16:54.556+0000] {subprocess.py:93} INFO - 	... 8 more
+[2026-05-07T10:18:26.857+0000] {subprocess.py:93} INFO - SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[2026-05-07T10:18:26.915+0000] {subprocess.py:93} INFO - SLF4J: Defaulting to no-operation (NOP) logger implementation
+[2026-05-07T10:18:26.919+0000] {subprocess.py:93} INFO - SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[2026-05-07T10:23:19.117+0000] {subprocess.py:93} INFO - 26/05/07 10:23:17 WARN NettyRpcEnv: Ignored failure: java.util.concurrent.TimeoutException: Cannot receive any reply from 2185890eddc3:41591 in 10000 milliseconds
+[2026-05-07T10:19:02.074+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 192, in heartbeat
+    self._merge_from(Job._fetch_from_db(self, session))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 89, in wrapped_function
+    for attempt in run_with_db_retries(max_retries=retries, logger=logger, **retry_kwargs):
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 435, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 368, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 410, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 183, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 98, in wrapped_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 316, in _fetch_from_db
+    session.merge(job)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3056, in merge
+    return self._merge(
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3136, in _merge
+    merged = self.get(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2853, in get
+    return self._get_impl(
+           ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2975, in _get_impl
+    return db_load_fn(
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 530, in load_on_pk_identity
+    session.execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2026-05-07T10:23:21.521+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-05-07T10:24:32.165+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2026-05-07T10:24:33.452+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-05-07T10:24:34.071+0000] {process_utils.py:132} INFO - Sending 15 to group 776. PIDs of all processes in the group: [777, 786, 776]
+[2026-05-07T10:24:34.265+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 776
+[2026-05-07T10:24:34.413+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-05-07T10:24:34.671+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-05-07T10:24:35.304+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-07T10:24:45.417+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 234, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-05-07T10:24:45.818+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=ab_test_medallion_pipeline, task_id=process_bronze_to_silver, run_id=manual__2026-05-06T22:46:17.007283+00:00, execution_date=20260506T224617, start_date=20260507T101310, end_date=20260507T102445
+[2026-05-07T10:24:45.853+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=786, status='terminated', started='10:13:17') (786) terminated with exit code None
+[2026-05-07T10:24:46.670+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=777, status='terminated', started='10:13:11') (777) terminated with exit code None
+[2026-05-07T10:24:46.673+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=776, status='terminated', exitcode=2, started='10:13:09') (776) terminated with exit code 2

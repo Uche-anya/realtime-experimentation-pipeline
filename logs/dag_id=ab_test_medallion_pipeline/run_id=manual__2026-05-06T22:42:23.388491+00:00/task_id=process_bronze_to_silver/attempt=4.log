@@ -1,0 +1,58 @@
+[2026-05-07T10:06:07.091+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-07T10:06:07.509+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:42:23.388491+00:00 [queued]>
+[2026-05-07T10:06:06.765+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:42:23.388491+00:00 [queued]>
+[2026-05-07T10:06:06.765+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 2
+[2026-05-07T10:06:06.978+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): process_bronze_to_silver> on 2026-05-06 22:42:23.388491+00:00
+[2026-05-07T10:06:07.125+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ab_test_medallion_pipeline', 'process_bronze_to_silver', 'manual__2026-05-06T22:42:23.388491+00:00', '--job-id', '64', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_dag.py', '--cfg-path', '/tmp/tmp_18pj3_i']
+[2026-05-07T10:06:07.283+0000] {standard_task_runner.py:91} INFO - Job 64: Subtask process_bronze_to_silver
+[2026-05-07T10:06:07.239+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=169) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-07T10:06:07.293+0000] {standard_task_runner.py:63} INFO - Started process 175 to run task
+[2026-05-07T10:06:08.049+0000] {task_command.py:426} INFO - Running <TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T22:42:23.388491+00:00 [running]> on host 2185890eddc3
+[2026-05-07T10:06:08.743+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_platform' AIRFLOW_CTX_DAG_ID='ab_test_medallion_pipeline' AIRFLOW_CTX_TASK_ID='process_bronze_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-05-06T22:42:23.388491+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-06T22:42:23.388491+00:00'
+[2026-05-07T10:06:08.745+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-07T10:06:09.081+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-07T10:06:09.084+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/transforms/silver_transform.py']
+[2026-05-07T10:06:09.154+0000] {subprocess.py:86} INFO - Output:
+[2026-05-07T10:06:25.170+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-05-07T10:07:00.610+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-05-07T10:07:03.486+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2.5.2/cache
+[2026-05-07T10:07:03.667+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2.5.2/jars
+[2026-05-07T10:07:03.954+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+[2026-05-07T10:07:04.039+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2026-05-07T10:07:04.049+0000] {subprocess.py:93} INFO - software.amazon.awssdk#bundle added as a dependency
+[2026-05-07T10:07:04.114+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-50b91c49-9984-4f07-9023-517ad7bb55cf;1.0
+[2026-05-07T10:07:04.115+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-07T10:07:35.956+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.4.2 in central
+[2026-05-07T10:07:41.221+0000] {subprocess.py:93} INFO - 	found software.amazon.awssdk#bundle;2.29.52 in central
+[2026-05-07T10:07:50.051+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.4.2/hadoop-aws-3.4.2.jar ...
+[2026-05-07T10:07:52.908+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/software/amazon/awssdk/bundle/2.29.52/bundle-2.29.52.jar ...
+[2026-05-07T10:11:27.470+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2026-05-07T10:11:27.619+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-05-07T10:11:27.666+0000] {process_utils.py:132} INFO - Sending 15 to group 175. PIDs of all processes in the group: [179, 217, 175]
+[2026-05-07T10:11:27.694+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 175
+[2026-05-07T10:11:27.748+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-05-07T10:11:27.833+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-05-07T10:11:27.918+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-07T10:11:28.534+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=217, status='terminated', started='10:06:19') (217) terminated with exit code None
+[2026-05-07T10:11:28.925+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 234, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-05-07T10:11:29.382+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=ab_test_medallion_pipeline, task_id=process_bronze_to_silver, run_id=manual__2026-05-06T22:42:23.388491+00:00, execution_date=20260506T224223, start_date=20260507T100607, end_date=20260507T101129
+[2026-05-07T10:11:30.458+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=179, status='terminated', started='10:06:09') (179) terminated with exit code None
+[2026-05-07T10:11:30.460+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=175, status='terminated', exitcode=2, started='10:06:06') (175) terminated with exit code 2

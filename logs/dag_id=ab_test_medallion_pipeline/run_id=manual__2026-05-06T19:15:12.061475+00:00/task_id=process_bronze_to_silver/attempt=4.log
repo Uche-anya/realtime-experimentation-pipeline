@@ -1,0 +1,72 @@
+[2026-05-07T09:37:10.632+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-07T09:37:11.285+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T19:15:12.061475+00:00 [queued]>
+[2026-05-07T09:37:11.402+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T19:15:12.061475+00:00 [queued]>
+[2026-05-07T09:37:11.403+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2026-05-07T09:37:11.661+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): process_bronze_to_silver> on 2026-05-06 19:15:12.061475+00:00
+[2026-05-07T09:37:11.979+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ab_test_medallion_pipeline', 'process_bronze_to_silver', 'manual__2026-05-06T19:15:12.061475+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_dag.py', '--cfg-path', '/tmp/tmpvk4o5_26']
+[2026-05-07T09:37:11.987+0000] {standard_task_runner.py:91} INFO - Job 20: Subtask process_bronze_to_silver
+[2026-05-07T09:37:12.283+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=166) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-07T09:37:12.285+0000] {standard_task_runner.py:63} INFO - Started process 172 to run task
+[2026-05-07T09:37:14.765+0000] {task_command.py:426} INFO - Running <TaskInstance: ab_test_medallion_pipeline.process_bronze_to_silver manual__2026-05-06T19:15:12.061475+00:00 [running]> on host c145f51c9ab6
+[2026-05-07T09:37:18.101+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_platform' AIRFLOW_CTX_DAG_ID='ab_test_medallion_pipeline' AIRFLOW_CTX_TASK_ID='process_bronze_to_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-05-06T19:15:12.061475+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-06T19:15:12.061475+00:00'
+[2026-05-07T09:37:18.109+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-07T09:37:19.044+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-07T09:37:19.100+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/transforms/silver_transform.py']
+[2026-05-07T09:37:19.259+0000] {subprocess.py:86} INFO - Output:
+[2026-05-07T09:37:39.326+0000] {subprocess.py:93} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-05-07T09:38:16.737+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-05-07T09:38:18.422+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2.5.2/cache
+[2026-05-07T09:38:18.423+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2.5.2/jars
+[2026-05-07T09:38:18.455+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+[2026-05-07T09:38:18.520+0000] {subprocess.py:93} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2026-05-07T09:38:18.521+0000] {subprocess.py:93} INFO - software.amazon.awssdk#bundle added as a dependency
+[2026-05-07T09:38:18.522+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-5e6b54b2-448b-4df7-9843-047945db64fe;1.0
+[2026-05-07T09:38:18.523+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-07T09:38:25.112+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 in central
+[2026-05-07T09:38:28.198+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 in spark-list
+[2026-05-07T09:38:29.470+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.9.1 in central
+[2026-05-07T09:38:31.552+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2026-05-07T09:38:32.129+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.8 in central
+[2026-05-07T09:38:32.401+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.17 in central
+[2026-05-07T09:38:33.420+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.4.2 in central
+[2026-05-07T09:38:34.790+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.4.2 in central
+[2026-05-07T09:38:36.235+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2026-05-07T09:38:36.838+0000] {subprocess.py:93} INFO - 	found org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 in central
+[2026-05-07T09:38:37.131+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.12.1 in spark-list
+[2026-05-07T09:38:37.188+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-aws;3.4.2 in central
+[2026-05-07T09:38:38.168+0000] {subprocess.py:93} INFO - 	found software.amazon.awssdk#bundle;2.29.52 in central
+[2026-05-07T09:38:38.572+0000] {subprocess.py:93} INFO - 	found software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 in central
+[2026-05-07T09:38:38.906+0000] {subprocess.py:93} INFO - 	found org.wildfly.openssl#wildfly-openssl;2.1.4.Final in central
+[2026-05-07T09:38:40.010+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 20827ms :: artifacts dl 572ms
+[2026-05-07T09:38:40.021+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2026-05-07T09:38:40.028+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2026-05-07T09:38:40.028+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.12.1 from spark-list in [default]
+[2026-05-07T09:38:40.029+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-aws;3.4.2 from central in [default]
+[2026-05-07T09:38:40.065+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.4.2 from central in [default]
+[2026-05-07T09:38:40.066+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.4.2 from central in [default]
+[2026-05-07T09:38:40.066+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.9.1 from central in [default]
+[2026-05-07T09:38:40.067+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.1 from central in [default]
+[2026-05-07T09:38:40.099+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.1 from spark-list in [default]
+[2026-05-07T09:38:40.110+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2026-05-07T09:38:40.156+0000] {subprocess.py:93} INFO - 	org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 from central in [default]
+[2026-05-07T09:38:40.157+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.17 from central in [default]
+[2026-05-07T09:38:40.157+0000] {subprocess.py:93} INFO - 	org.wildfly.openssl#wildfly-openssl;2.1.4.Final from central in [default]
+[2026-05-07T09:38:40.171+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.8 from central in [default]
+[2026-05-07T09:38:40.172+0000] {subprocess.py:93} INFO - 	software.amazon.awssdk#bundle;2.29.52 from central in [default]
+[2026-05-07T09:38:40.172+0000] {subprocess.py:93} INFO - 	software.amazon.s3.analyticsaccelerator#analyticsaccelerator-s3;1.2.1 from central in [default]
+[2026-05-07T09:38:40.173+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-07T09:38:40.173+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-05-07T09:38:40.212+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-05-07T09:38:40.426+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-07T09:38:40.427+0000] {subprocess.py:93} INFO - 	|      default     |   15  |   0   |   0   |   0   ||   15  |   0   |
+[2026-05-07T09:38:40.444+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2026-05-07T09:38:40.557+0000] {subprocess.py:93} INFO - 
+[2026-05-07T09:38:40.558+0000] {subprocess.py:93} INFO - :: problems summary ::
+[2026-05-07T09:38:40.559+0000] {subprocess.py:93} INFO - :::: ERRORS
+[2026-05-07T09:38:40.562+0000] {subprocess.py:93} INFO - 	unknown resolver null
+[2026-05-07T09:38:40.563+0000] {subprocess.py:93} INFO - 
+[2026-05-07T09:38:40.564+0000] {subprocess.py:93} INFO - 
+[2026-05-07T09:38:40.580+0000] {subprocess.py:93} INFO - :: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
+[2026-05-07T09:38:40.637+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-5e6b54b2-448b-4df7-9843-047945db64fe
+[2026-05-07T09:38:40.638+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2026-05-07T09:38:40.967+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 15 already retrieved (0kB/313ms)
